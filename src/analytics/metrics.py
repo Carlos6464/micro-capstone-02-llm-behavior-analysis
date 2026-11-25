@@ -43,29 +43,46 @@ def global_score(scores, consistency):
 # Autor: Carlos Adriano
 # Data: 25/11/2026
 # Descrição: Consolida indicadores por estratégia.
-def aggregate(individual, pairs, planned=90):
+def aggregate(individual, pairs, planned=90, repetitions=3, responses=()):
     result = []
     for prompt in ("P01", "P02", "P03", "P04", "P05"):
         rows = [r for r in individual if r["prompt_id"] == prompt]
         groups = {}
         for r in rows:
             groups.setdefault(r["case_id"], []).append(r)
-        complete = [g for g in groups.values() if len(g) == 3]
+        complete = [g for g in groups.values() if len(g) == repetitions]
         pg = {}
         for p in pairs:
             if p["prompt_id"] == prompt:
                 pg.setdefault(p["case_id"], []).append(pair_score(p))
-        cs = [mean(v) for v in pg.values() if len(v) == 3]
+        cs = [mean(v) for v in pg.values() if len(v) == repetitions * (repetitions - 1) // 2]
         scores = (
             {k: mean(mean(r["scores"][k] for r in g) for g in complete) for k in WEIGHTS}
             if complete
             else {}
         )
         consistency = mean(cs) if cs else None
+        generated = [
+            r for r in responses if r["prompt_id"] == prompt and r["status"] == "success"
+        ]
+        operational = {}
+        for key in ("latency_ms", "input_tokens", "output_tokens"):
+            values = [r[key] for r in generated if r.get(key) is not None]
+            operational[key + "_mean"] = mean(values) if values else None
+        for label, records in (
+            ("generation", generated),
+            ("evaluation", rows + [p for p in pairs if p["prompt_id"] == prompt]),
+        ):
+            costs = [r.get("estimated_cost_usd") for r in records]
+            operational[label + "_cost_usd"] = (
+                sum(costs) if costs and all(c is not None for c in costs) else None
+            )
         result.append(
             {
                 "prompt_id": prompt,
                 "evaluated": len(rows),
+                "operational": operational,
+                "review_required": sum(bool(r.get("human_review_required")) for r in rows),
                 "coverage": 100 * len(rows) / planned,
                 "scores": scores,
                 "consistency": consistency,

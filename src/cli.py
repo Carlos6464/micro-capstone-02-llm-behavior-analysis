@@ -44,6 +44,7 @@ def main():
     parser.add_argument("--execute", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--export", action="store_true")
+    parser.add_argument("--import-reviews", type=Path)
     args = parser.parse_args()
     root = args.root
     cases = load_inputs(root)
@@ -161,7 +162,12 @@ def main():
         return
     if not raw.exists():
         raise ValueError("Execução inexistente; informe --run-id.")
-    individual = read_records(evaluated / "individual_evaluations.jsonl")
+    from src.evaluation.deterministic_evaluator import audit_record
+
+    responses = read_records(raw / "responses.jsonl")
+    originals = read_records(evaluated / "individual_evaluations.jsonl")
+    by_id = {r["execution_id"]: r for r in responses if r["status"] == "success"}
+    individual = [audit_record(r, by_id[r["execution_id"]]) for r in originals]
     pairs = read_records(evaluated / "consistency_evaluations.jsonl")
     if args.command == "status":
         print(
@@ -175,9 +181,17 @@ def main():
             )
         )
     elif args.command == "review":
-        from src.evaluation.human_review import review_queue
+        from src.evaluation.human_review import review_queue, validate_reviews
 
         evaluated.mkdir(parents=True, exist_ok=True)
+        if args.import_reviews:
+            reviews = validate_reviews(
+                json.loads(args.import_reviews.read_text(encoding="utf-8")), individual
+            )
+            target = evaluated / "human_review_results.json"
+            if target.exists():
+                raise ValueError("Revisões já importadas; preserve o arquivo original.")
+            target.write_text(json.dumps(reviews, ensure_ascii=False, indent=2), encoding="utf-8")
         (evaluated / "human_review_queue.json").write_text(
             json.dumps(review_queue(individual), ensure_ascii=False, indent=2), encoding="utf-8"
         )
@@ -185,9 +199,17 @@ def main():
         from src.analytics.decision_engine import decide
         from src.analytics.metrics import aggregate
 
-        rows = aggregate(individual, pairs)
+        manifest = json.loads((raw / "run_manifest.json").read_text(encoding="utf-8"))
+        repetitions = manifest["config"]["repetitions"]
+        planned = len(manifest["tasks"]) // len(prompts)
+        rows = aggregate(individual, pairs, planned, repetitions, responses)
+        evaluated.mkdir(parents=True, exist_ok=True)
+        (evaluated / "audited_evaluations.json").write_text(
+            json.dumps(individual, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
         for row in rows:
             row["decision"] = decide(row)
+            row["scope"] = "full" if planned == 90 and repetitions == 3 else "pilot"
         if args.command == "report":
             from src.reporting.report_generator import report
 

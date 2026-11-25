@@ -26,3 +26,12 @@ def report(rows, directory: Path):
         ax.set_ylabel("SGD")
         fig.savefig(directory / "sgd.png", bbox_inches="tight")
         plt.close(fig)
+    else:
+        columns = [c for c in table.columns if c.startswith("scores.")]
+        if columns:
+            fig, ax = plt.subplots()
+            table.set_index("prompt_id")[columns].plot.bar(ax=ax)
+            ax.set_ylim(0, 5)
+            ax.set_ylabel("Notas individuais (sem consistência)")
+            fig.savefig(directory / "individual_scores.png", bbox_inches="tight")
+            plt.close(fig)

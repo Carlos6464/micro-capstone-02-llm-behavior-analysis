@@ -380,3 +380,7 @@ Copie .env.example para .env sem sobrescrever configuração existente e preench
 ### Evidência local Gemini — 25/11/2026
 
 Commit testado `2711ae7`: 30 testes aprovados em 7,60 s, cobertura geral 86,32%, adaptador Gemini 97%, lint aprovado e zero chamadas pagas. Dois ajustes de formatação aplicados conforme diff do Ruff; reteste pendente. Integração real ainda não validada. Piloto separado do experimento completo.
+
+## Correções pós-piloto
+
+Relatórios usam o manifesto para cobertura e repetições. Sem pares, SGD permanece indisponível e o gráfico individual é produzido. Métricas operacionais incluem médias de latência e tokens de geração e custos por fase. Auditoria local preserva JSONL originais, exporta audited_evaluations.json e sinaliza evidências não literais e valores suspeitos do TC-024 (H01). Regra específica, não verificador financeiro universal; flags exigem revisão. Notas originais não são alteradas automaticamente. Importação humana: `uv run python -m src review --run-id RUN-PILOT01 --import-reviews reviews.json`; JSON com lista de execution_id, decision (confirmed/rejected/corrected), reviewer e notes. Importação ainda não aplica correções às notas nem libera GO. Execute `make report RUN_ID=RUN-PILOT01` para reprocessar sem API e `uv run python -m src review --run-id RUN-PILOT01 --export` para fila. Testes novos pendentes de execução local.
