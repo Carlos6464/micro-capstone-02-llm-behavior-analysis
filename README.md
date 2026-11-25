@@ -1,10 +1,35 @@
+<div align="center">
+
+<img src="docs/assets/banner.svg" alt="Nexus Cloud — Análise de comportamento de LLM" width="100%"/>
+
 # Análise de Comportamento de LLM para Atendimento Corporativo
 
-## Visão geral
+**Engenharia de prompts · Avaliação experimental · Inteligência artificial responsável**
+
+![Status](https://img.shields.io/badge/Status-Em%20desenvolvimento-D58C28?style=for-the-badge) ![Fase](https://img.shields.io/badge/Fase-PoC-16877E?style=for-the-badge) ![Base de conhecimento](https://img.shields.io/badge/Base%20de%20conhecimento-v1.0.0-25804D?style=for-the-badge)
+
+[Visão geral](#-visão-geral) · [Arquitetura](#-arquitetura-da-solução) · [Stack](#-stack-tecnológica-prevista) · [Experimentos](#-estratégias-de-engenharia-de-prompts) · [Roadmap](#-roadmap) · [Documentação](#-documentação-empresarial)
+
+</div>
+
+---
+
+## 📖 Visão geral
 
 Este projeto tem como objetivo investigar, avaliar e comparar o comportamento de grandes modelos de linguagem (LLMs) aplicados ao atendimento corporativo, utilizando diferentes estratégias de engenharia de prompts.
 
 A solução propõe uma abordagem experimental, estruturada e reproduzível, capaz de gerar evidências técnicas que apoiem decisões relacionadas à adoção de inteligência artificial em operações de atendimento ao cliente.
+
+## ✨ Diferenciais da solução
+
+| Capacidade | Finalidade |
+|---|---|
+| 🧠 Engenharia de prompts | Cinco estratégias comparáveis |
+| 📚 Contexto corporativo | Base de conhecimento versionada |
+| 🛡️ Segurança | Avaliação de violações e alucinações |
+| 📊 Benchmark | Comparação quantitativa e qualitativa |
+| 🔬 Reprodutibilidade | Condições experimentais controladas |
+| 📋 Governança | Rastreabilidade e decisões arquiteturais |
 
 ## Contexto empresarial
 
@@ -52,7 +77,7 @@ O projeto contempla:
 
 A implantação de um assistente virtual em produção e a integração com sistemas reais de atendimento não fazem parte do escopo inicial.
 
-## Estratégias de engenharia de prompts
+## 🧪 Estratégias de engenharia de prompts
 
 | Identificador | Estratégia |
 |---|---|
@@ -77,22 +102,71 @@ As respostas serão avaliadas considerando as seguintes dimensões:
 
 Indicadores complementares de custo e latência poderão ser incorporados conforme a disponibilidade dos recursos utilizados.
 
-## Arquitetura da solução
+## 🏗️ Arquitetura da solução
 
 A arquitetura proposta será modular, com separação de responsabilidades entre os componentes de gerenciamento de dados, integração com modelos de linguagem, execução experimental, avaliação e análise de resultados.
 
 Essa abordagem busca favorecer a manutenção, a extensibilidade e a reprodução dos experimentos.
 
-## Tecnologias previstas
+### Fluxo experimental planejado
 
-- Python
-- APIs de modelos de linguagem
-- Pandas
-- Matplotlib
-- Git e GitHub
-- Markdown
+```mermaid
+flowchart TD
+ A[Dataset corporativo] --> C[Engenharia de prompts P01 a P05]
+ B[Base de conhecimento] --> C
+ C --> D[Provedor de LLM]
+ D --> E[Motor de avaliação]
+ E --> F[Indicadores comparativos]
+ E --> G[Relatórios e recomendação]
+```
 
-## Princípios de engenharia
+## 🛠️ Stack tecnológica prevista
+
+<div align="center">
+
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![OpenAI SDK](https://img.shields.io/badge/OpenAI%20SDK-previsto-412991?style=for-the-badge&logo=openai&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-previsto-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-previsto-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-previsto-11557C?style=for-the-badge&logo=matplotlib&logoColor=white)
+![Pydantic](https://img.shields.io/badge/Pydantic-previsto-E92063?style=for-the-badge&logo=pydantic&logoColor=white)
+![Python-dotenv](https://img.shields.io/badge/Python--dotenv-previsto-557755?style=for-the-badge)
+![Pytest](https://img.shields.io/badge/Pytest-previsto-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
+![Ruff](https://img.shields.io/badge/Ruff-previsto-D7FF64?style=for-the-badge&logo=ruff&logoColor=white)
+![uv](https://img.shields.io/badge/uv-previsto-6655CC?style=for-the-badge&logo=uv&logoColor=white)
+![Git](https://img.shields.io/badge/Git-versionamento-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-reposit%C3%B3rio-181717?style=for-the-badge&logo=github&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-previsto-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+![Markdown](https://img.shields.io/badge/Markdown-documenta%C3%A7%C3%A3o-555555?style=for-the-badge&logo=markdown&logoColor=white)
+![Mermaid](https://img.shields.io/badge/Mermaid-diagramas-FF3670?style=for-the-badge&logo=mermaid&logoColor=white)
+![CSV / JSON / YAML](https://img.shields.io/badge/CSV%20%2F%20JSON%20%2F%20YAML-previsto-16877E?style=for-the-badge)
+
+</div>
+
+| Tecnologia | Responsabilidade |
+|---|---|
+| Python 3.12 | Linguagem principal |
+| OpenAI SDK | Integração inicial com LLMs |
+| Pandas | Manipulação de dados |
+| NumPy | Cálculos estatísticos |
+| Matplotlib | Visualização |
+| Pydantic | Validação de schemas |
+| Python-dotenv | Variáveis de ambiente |
+| Pytest | Testes unitários e de integração |
+| Ruff | Linting e formatação |
+| uv | Dependências e ambientes |
+| Git | Controle de versão |
+| GitHub | Colaboração e rastreabilidade |
+| GitHub Actions | Automação de verificações |
+| Markdown | Documentação empresarial e técnica |
+| Mermaid | Arquitetura e fluxos |
+| CSV / JSON / YAML | Dados e configurações |
+
+Git, GitHub, Markdown e Mermaid já são utilizados na documentação. As demais ferramentas são previstas; a escolha final do provedor depende de acesso e custo. Não há infraestrutura de produção, banco vetorial ou RAG nesta fase.
+
+## 🧭 Princípios de engenharia
+
+Clean Code, SOLID, separação de responsabilidades, arquitetura independente de provedor, Security by Design, IA responsável e testes automatizados são diretrizes previstas.
 
 - Arquitetura modular.
 - Separação de responsabilidades.
@@ -103,7 +177,36 @@ Essa abordagem busca favorecer a manutenção, a extensibilidade e a reproduçã
 - Governança de inteligência artificial.
 - Tomada de decisão baseada em evidências.
 
-## Estrutura do projeto
+## 📁 Estrutura do projeto
+
+```text
+micro-capstone-02-llm-behavior-analysis/
+├── config/
+├── data/
+│   ├── raw/
+│   ├── processed/
+│   └── knowledge_base/
+├── prompts/
+├── src/
+│   ├── providers/
+│   ├── experiments/
+│   ├── evaluation/
+│   └── analytics/
+├── tests/
+├── results/
+│   ├── raw/
+│   ├── evaluated/
+│   └── reports/
+├── docs/
+│   ├── assets/
+│   ├── business/
+│   ├── architecture/
+│   ├── methodology/
+│   └── decisions/
+├── .env.example
+├── .gitignore
+└── README.md
+```
 
 | Diretório | Responsabilidade |
 |---|---|
@@ -132,7 +235,7 @@ O projeto deverá utilizar dados simulados ou devidamente anonimizados, evitando
 
 As configurações sensíveis serão gerenciadas por meio de variáveis de ambiente e não serão armazenadas no controle de versão.
 
-## Documentação empresarial
+## 📚 Documentação empresarial
 
 - [Perfil da empresa](docs/business/company_profile.md)
 - [Contexto empresarial](docs/business/business_context.md)
@@ -147,6 +250,28 @@ As configurações sensíveis serão gerenciadas por meio de variáveis de ambie
 
 A [base de conhecimento Nexus Cloud v1.0.0](data/knowledge_base/README.md) reúne catálogo, preços, políticas e procedimentos simulados. A [ADR-001](docs/decisions/ADR-001-knowledge-base-strategy.md) registra a decisão de utilizar contexto direto comum às cinco estratégias, sem RAG nesta fase.
 
+## 📈 Roadmap
+
+![Progresso](https://img.shields.io/badge/Progresso-38%2C5%25-16877E?style=for-the-badge)
+
+**5 de 13 etapas concluídas**
+
+| Etapa | Status |
+|---|---|
+| 1. Leitura dos requisitos | ✅ Concluído |
+| 2. Criação e conexão do repositório | ✅ Concluído |
+| 3. Estrutura inicial | ✅ Concluído |
+| 4. Cenário corporativo | ✅ Concluído |
+| 5. Base de conhecimento | ✅ Concluído |
+| 6. Dataset | ⬜ Planejado |
+| 7. Engenharia de prompts | ⬜ Planejado |
+| 8. Critérios de avaliação | ⬜ Planejado |
+| 9. Implementação Python | ⬜ Planejado |
+| 10. Execução dos experimentos | ⬜ Planejado |
+| 11. Análise dos resultados | ⬜ Planejado |
+| 12. Relatórios | ⬜ Planejado |
+| 13. Revisão final e publicação | ⬜ Planejado |
+
 ## Status do projeto
 
 **Em desenvolvimento — Prova de conceito**
@@ -154,3 +279,13 @@ A [base de conhecimento Nexus Cloud v1.0.0](data/knowledge_base/README.md) reún
 A estrutura inicial, o cenário corporativo e a base de conhecimento estão definidos. O dataset e os componentes experimentais serão desenvolvidos nas próximas etapas. Os resultados, indicadores e recomendações serão disponibilizados após a execução e validação dos experimentos.
 
 O projeto não constitui, neste estágio, uma solução homologada para utilização em produção.
+
+---
+
+<div align="center">
+
+**Nexus Cloud — Engenharia de IA**
+
+Engenharia de inteligência artificial orientada por evidências.
+
+</div>
