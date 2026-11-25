@@ -14,7 +14,9 @@ def build_messages(template: str, knowledge: str, case: BenchmarkInput) -> list[
         if template.count("{" + variable + "}") != 1:
             raise ValueError(f"Variável inválida: {variable}")
     return [
-        LLMMessage(role="system", content=template[:-len(MARKER)].format(
-            knowledge_base=knowledge, channel=case.channel)),
+        LLMMessage(
+            role="system",
+            content=template[: -len(MARKER)].format(knowledge_base=knowledge, channel=case.channel),
+        ),
         LLMMessage(role="user", content=case.customer_query),
     ]

@@ -6,8 +6,9 @@ class OpenAIProvider:
     # Autor: Carlos Adriano
     # Data: 25/11/2026
     # Descrição: Inicializa as dependências do componente.
-    def __init__(self, client, model: str, temperature: float, top_p: float,
-                 max_output_tokens: int):
+    def __init__(
+        self, client, model: str, temperature: float, top_p: float, max_output_tokens: int
+    ):
         self.client = client
         self.model = model
         self.temperature = temperature
@@ -30,7 +31,8 @@ class OpenAIProvider:
             raise ValueError("Resposta incompleta ou vazia.")
         usage = response.usage
         return ProviderResponse(
-            choice.message.content, response.model,
+            choice.message.content,
+            response.model,
             usage.prompt_tokens if usage else None,
             usage.completion_tokens if usage else None,
             response.id,

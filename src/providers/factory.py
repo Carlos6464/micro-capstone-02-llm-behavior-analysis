@@ -16,5 +16,4 @@ def create_provider(config: ExperimentConfig, *, judge: bool = False):
     if not key or not model:
         raise ValueError(f"Configure {prefix}_API_KEY e {prefix}_MODEL.")
     client = OpenAI(api_key=key, max_retries=0, timeout=60)
-    return OpenAIProvider(client, model, config.temperature, config.top_p,
-                          config.max_output_tokens)
+    return OpenAIProvider(client, model, config.temperature, config.top_p, config.max_output_tokens)

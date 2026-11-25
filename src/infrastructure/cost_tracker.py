@@ -13,8 +13,10 @@ class CostTracker:
     # Data: 25/11/2026
     # Descrição: Valida valores iniciais do orçamento.
     def __post_init__(self):
-        if not all(isfinite(v) and v >= 0 for v in
-                   (self.limit, self.input_price, self.output_price, self.spent)):
+        if not all(
+            isfinite(v) and v >= 0
+            for v in (self.limit, self.input_price, self.output_price, self.spent)
+        ):
             raise ValueError("Orçamento ou preços inválidos.")
 
     # Autor: Carlos Adriano
