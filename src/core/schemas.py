@@ -34,5 +34,8 @@ class ExperimentTask(BaseModel):
     repetition: int = Field(ge=1)
 
     @property
+    # Autor: Carlos Adriano
+    # Data: 25/11/2026
+    # Descrição: Gera identificador único da tarefa experimental.
     def execution_id(self) -> str:
         return f"{self.case_id}-{self.prompt_id}-{self.repetition}"

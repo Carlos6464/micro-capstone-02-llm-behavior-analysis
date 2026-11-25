@@ -1,3 +1,6 @@
+# Autor: Carlos Adriano
+# Data: 25/11/2026
+# Descrição: Aplica critérios de decisão e bloqueios de aprovação.
 def decide(metrics, *, traceability=0, reviews_complete=False, confirmed_critical=False):
     if confirmed_critical:
         return "NO-GO"

@@ -6,6 +6,9 @@ from src.core.config import ExperimentConfig
 from src.providers.openai_provider import OpenAIProvider
 
 
+# Autor: Carlos Adriano
+# Data: 25/11/2026
+# Descrição: Instancia o adaptador com configuração do ambiente.
 def create_provider(config: ExperimentConfig, *, judge: bool = False):
     prefix = "JUDGE" if judge else "LLM"
     key = os.environ.get(f"{prefix}_API_KEY")

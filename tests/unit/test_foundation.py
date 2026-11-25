@@ -10,11 +10,17 @@ from src.prompting.prompt_registry import load_prompts
 ROOT = Path(__file__).resolve().parents[2]
 
 
+# Autor: Carlos Adriano
+# Data: 25/11/2026
+# Descrição: Verifica quantidade e unicidade das tarefas.
 def test_plan():
     tasks = plan(load_inputs(ROOT), load_config(ROOT))
     assert len(tasks) == len({t.execution_id for t in tasks}) == 450
 
 
+# Autor: Carlos Adriano
+# Data: 25/11/2026
+# Descrição: Verifica a separação das mensagens de sistema e usuário.
 def test_messages():
     case = load_inputs(ROOT)[0]
     for template in load_prompts(ROOT).values():

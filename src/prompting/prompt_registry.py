@@ -3,6 +3,9 @@ from pathlib import Path
 import yaml
 
 
+# Autor: Carlos Adriano
+# Data: 25/11/2026
+# Descrição: Carrega os cinco templates aprovados.
 def load_prompts(root: Path) -> dict[str, str]:
     directory = root / "prompts"
     registry = yaml.safe_load((directory / "prompt_registry.yaml").read_text(encoding="utf-8"))

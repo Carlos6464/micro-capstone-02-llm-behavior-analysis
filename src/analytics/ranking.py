@@ -1,3 +1,6 @@
+# Autor: Carlos Adriano
+# Data: 25/11/2026
+# Descrição: Ordena estratégias GO pelos critérios de desempate.
 def rank(rows):
     remaining = [r for r in rows if r.get("decision") == "GO"]
     result = []

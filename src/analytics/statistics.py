@@ -1,6 +1,9 @@
 import numpy as np
 
 
+# Autor: Carlos Adriano
+# Data: 25/11/2026
+# Descrição: Calcula intervalo de confiança por reamostragem pareada.
 def paired_bootstrap(baseline, candidate, iterations=10000, seed=42):
     if set(baseline) != set(candidate) or not baseline:
         raise ValueError("Casos não pareados.")

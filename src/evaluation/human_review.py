@@ -3,6 +3,9 @@ import math
 from collections import defaultdict
 
 
+# Autor: Carlos Adriano
+# Data: 25/11/2026
+# Descrição: Seleciona registros para revisão humana obrigatória e amostral.
 def review_queue(records, seed=42):
     required = [r for r in records if r["human_review_required"]]
     strata = defaultdict(list)

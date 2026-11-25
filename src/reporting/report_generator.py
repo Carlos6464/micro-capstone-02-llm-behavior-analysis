@@ -7,6 +7,9 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 
+# Autor: Carlos Adriano
+# Data: 25/11/2026
+# Descrição: Exporta indicadores CSV, resumo JSON e gráfico SGD.
 def report(rows, directory: Path):
     directory.mkdir(parents=True, exist_ok=True)
     table = pd.json_normalize(rows)

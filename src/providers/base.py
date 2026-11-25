@@ -14,4 +14,7 @@ class ProviderResponse:
 
 
 class LLMProvider(Protocol):
+    # Autor: Carlos Adriano
+    # Data: 25/11/2026
+    # Descrição: Define o contrato de geração de respostas do provedor.
     def generate(self, messages: list[LLMMessage]) -> ProviderResponse: ...

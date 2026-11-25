@@ -3,6 +3,9 @@ import os
 from pathlib import Path
 
 
+# Autor: Carlos Adriano
+# Data: 25/11/2026
+# Descrição: Lê registros JSONL existentes.
 def read_records(path: Path) -> list[dict]:
     if not path.exists():
         return []
@@ -10,6 +13,9 @@ def read_records(path: Path) -> list[dict]:
             if line.strip()]
 
 
+# Autor: Carlos Adriano
+# Data: 25/11/2026
+# Descrição: Acrescenta e sincroniza um registro JSONL.
 def append_record(path: Path, record: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("a", encoding="utf-8") as stream:
