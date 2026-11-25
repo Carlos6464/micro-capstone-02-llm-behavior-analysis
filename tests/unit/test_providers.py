@@ -37,6 +37,7 @@ def test_provider(finish, content, valid):
 # Descrição: Verifica configuração e criação isolada do provedor.
 @pytest.mark.parametrize("judge,prefix", [(False, "LLM"), (True, "JUDGE")])
 def test_factory(monkeypatch, judge, prefix):
+    monkeypatch.setenv(f"{prefix}_PROVIDER", "openai")
     monkeypatch.delenv(f"{prefix}_API_KEY", raising=False)
     monkeypatch.delenv(f"{prefix}_MODEL", raising=False)
     config = ExperimentConfig()

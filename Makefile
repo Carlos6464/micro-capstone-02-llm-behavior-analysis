@@ -29,3 +29,21 @@ test:
 # Formatação opcional: altera os arquivos Python locais.
 format:
 	uv run ruff format .
+
+# Comandos explícitos de execução paga; use identificadores distintos.
+.PHONY: pilot experiment evaluate report
+pilot:
+	@test -n "$(RUN_ID)" || (echo "Informe RUN_ID=RUN-PILOT01"; exit 1)
+	uv run python -m src run --run-id "$(RUN_ID)" --cases TC-001 TC-024 TC-029 --repetitions 1 --execute
+
+experiment:
+	@test -n "$(RUN_ID)" || (echo "Informe RUN_ID=RUN-FULL01"; exit 1)
+	uv run python -m src run --run-id "$(RUN_ID)" --execute
+
+evaluate:
+	@test -n "$(RUN_ID)" || (echo "Informe RUN_ID"; exit 1)
+	uv run python -m src evaluate --run-id "$(RUN_ID)" --execute
+
+report:
+	@test -n "$(RUN_ID)" || (echo "Informe RUN_ID"; exit 1)
+	uv run python -m src report --run-id "$(RUN_ID)"

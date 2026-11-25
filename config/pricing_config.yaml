@@ -1,7 +1,11 @@
-# Preencher com preços verificados antes de qualquer execução real.
+# USD por milhão de tokens; confira antes de executar.
+# https://ai.google.dev/gemini-api/docs/pricing
 generation:
   input_usd_per_million: null
   output_usd_per_million: null
 judge:
   input_usd_per_million: null
   output_usd_per_million: null
+gemini-2.5-flash:
+  input_usd_per_million: 0.30
+  output_usd_per_million: 2.50

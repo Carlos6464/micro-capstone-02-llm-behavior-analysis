@@ -3,6 +3,7 @@ import os
 from openai import OpenAI
 
 from src.core.config import ExperimentConfig
+from src.providers.gemini_provider import GeminiProvider
 from src.providers.openai_provider import OpenAIProvider
 
 
@@ -15,5 +16,17 @@ def create_provider(config: ExperimentConfig, *, judge: bool = False):
     model = os.environ.get(f"{prefix}_MODEL")
     if not key or not model:
         raise ValueError(f"Configure {prefix}_API_KEY e {prefix}_MODEL.")
+    provider = os.environ.get(f"{prefix}_PROVIDER", "openai").lower()
+    if provider == "gemini":
+        return GeminiProvider(
+            key,
+            model,
+            0.0 if judge else config.temperature,
+            config.top_p,
+            config.max_output_tokens,
+            judge=judge,
+        )
+    if provider != "openai":
+        raise ValueError("Provedor desconhecido.")
     client = OpenAI(api_key=key, max_retries=0, timeout=60)
     return OpenAIProvider(client, model, config.temperature, config.top_p, config.max_output_tokens)

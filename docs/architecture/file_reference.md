@@ -134,3 +134,8 @@ Inventário da árvore versionada em 9a3e6e8, incluindo arquivos de código, tes
 | [test_providers.py](../../tests/unit/test_providers.py) | Adaptador e fábrica com mocks. |
 | [test_pipeline.py](../../tests/integration/test_pipeline.py) | Pipeline simulado, retomada, avaliação e relatório. |
 | [test_cli.py](../../tests/integration/test_cli.py) | Comandos locais e bloqueio de chamadas reais. |
+
+| Arquivo | Responsabilidade |
+|---|---|
+| [gemini_provider.py](../../src/providers/gemini_provider.py) | Adaptador REST Gemini e normalização de tokens. |
+| [test_gemini.py](../../tests/unit/test_gemini.py) | Testes isolados de requisição, julgamento e falhas. |

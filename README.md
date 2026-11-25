@@ -370,3 +370,9 @@ Baseline local informado: 12 testes aprovados, cobertura de 27%, lint e formata�
 ### Evidência de validação local — 25/11/2026
 
 Commit testado: `7954a5c`. Ambiente limpo, dependências bloqueadas, 28 testes aprovados em 14,45 s, cobertura de instruções de 86,91% (meta 85% atingida), Ruff lint aprovado e dry-run sem chamadas pagas. O único erro foi de formatação em `test_pipeline.py`, corrigido conforme o diff do Ruff. Nova execução necessária para confirmar resultado geral zero. A homologação funcional completa permanece pendente.
+
+## Integração Gemini — Google AI Studio
+
+O adaptador usa a API REST oficial generateContent via biblioteca padrão Python, evitando alterar o uv.lock. A fábrica seleciona Gemini ou OpenAI pelas variáveis LLM_PROVIDER e JUDGE_PROVIDER. Modelo Gemini homologável: gemini-2.5-flash. Temperatura de geração 0,2 e julgamento 0,0; thinkingBudget=0, JSON no julgamento, sem ferramentas e sem retries automáticos. O mesmo modelo como juiz é uma limitação metodológica. Preços de referência: USD 0,30 entrada e 2,50 saída por milhão de tokens (https://ai.google.dev/gemini-api/docs/pricing). Orçamento estimado, não teto garantido; cobranças de falhas podem não ser contabilizadas. Não publique .env.
+
+Copie .env.example para .env sem sobrescrever configuração existente e preencha ambas as chaves. Execute make test antes de qualquer chamada. Após validação e autorização de gasto, make pilot RUN_ID=RUN-PILOT01 gera 15 respostas, make evaluate RUN_ID=RUN-PILOT01 avalia 15 respostas, e make report RUN_ID=RUN-PILOT01 produz relatório parcial (inconclusivo). O experimento completo usa make experiment RUN_ID=RUN-FULL01 e avaliação separada; não iniciar antes de homologação. Não reutilize identificadores entre piloto e experimento completo. A integração REST ainda não foi validada em rede. A avaliação determinística, revisão humana importada e rastreabilidade integral permanecem pendentes.

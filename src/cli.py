@@ -98,7 +98,16 @@ def main():
         from src.providers.factory import create_provider
 
         pricing = yaml.safe_load((root / "config/pricing_config.yaml").read_text())
-        section = pricing["generation" if args.command == "run" else "judge"]
+        prefix = "LLM" if args.command == "run" else "JUDGE"
+        provider_name = os.environ.get(f"{prefix}_PROVIDER", "openai").lower()
+        if provider_name == "gemini":
+            if os.environ.get(f"{prefix}_MODEL") != "gemini-2.5-flash":
+                raise ValueError("Modelo Gemini sem preço configurado.")
+            section = pricing["gemini-2.5-flash"]
+        elif provider_name == "openai":
+            section = pricing["generation" if args.command == "run" else "judge"]
+        else:
+            raise ValueError("Provedor desconhecido.")
         limit = float(os.environ["MAX_COST_USD"])
         budget = CostTracker(
             limit, float(section["input_usd_per_million"]), float(section["output_usd_per_million"])
@@ -110,6 +119,7 @@ def main():
                 "tasks": [t.model_dump() for t in tasks],
                 "config": config.model_dump(),
                 "model": os.environ.get("LLM_MODEL"),
+                "provider": provider_name,
                 "knowledge_hash": sha256(knowledge),
                 "prompt_hash": sha256(json.dumps(prompts, sort_keys=True)),
                 "dataset_hash": sha256(json.dumps([c.model_dump() for c in cases])),

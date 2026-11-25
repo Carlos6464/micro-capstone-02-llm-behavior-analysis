@@ -232,3 +232,8 @@ Thumbs.db
 
 # Logs locais de validação
 /logs/
+
+# Saídas experimentais locais (preservar marcadores já versionados)
+/results/raw/RUN-*/
+/results/evaluated/RUN-*/
+/results/reports/RUN-*/
