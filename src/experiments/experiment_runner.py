@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from time import perf_counter
 
@@ -46,7 +46,7 @@ class ExperimentRunner:
             base = dict(task.model_dump(), execution_id=task.execution_id,
                         prompt_hash=sha256(prompts[task.prompt_id]),
                         knowledge_base_hash=sha256(knowledge),
-                        executed_at=datetime.now(timezone.utc).isoformat())
+                        executed_at=datetime.now(UTC).isoformat())
             append_record(self.storage / "attempts.jsonl",
                           dict(base, status="started"))
             try:

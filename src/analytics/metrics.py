@@ -48,12 +48,17 @@ def aggregate(individual, pairs, planned=90):
         scores = {k: mean(mean(r["scores"][k] for r in g) for g in complete)
                   for k in WEIGHTS} if complete else {}
         consistency = mean(cs) if cs else None
-        result.append(dict(prompt_id=prompt, evaluated=len(rows), coverage=100*len(rows)/planned,
-                           scores=scores, consistency=consistency,
-                           hallucination_pct=100*sum(bool(r["hallucinations"]) for r in rows)/len(rows)
-                           if rows else None,
-                           critical=sum(r["max_severity"] == "S4" for r in rows),
-                           complete_cases=len(complete), complete_pairs=len(cs),
-                           sgd=global_score(scores, consistency) if scores and consistency is not None
-                           else None))
+        result.append({
+            "prompt_id": prompt,
+            "evaluated": len(rows),
+            "coverage": 100 * len(rows) / planned,
+            "scores": scores,
+            "consistency": consistency,
+            "hallucination_pct": 100 * sum(bool(r["hallucinations"]) for r in rows) / len(rows)
+            if rows else None,
+            "critical": sum(r["max_severity"] == "S4" for r in rows),
+            "complete_cases": len(complete),
+            "complete_pairs": len(cs),
+            "sgd": global_score(scores, consistency) if scores and consistency is not None else None,
+        })
     return result

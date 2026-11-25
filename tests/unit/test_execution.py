@@ -1,7 +1,7 @@
+import pytest
+
 from src.infrastructure.cost_tracker import CostTracker
 from src.infrastructure.storage import append_record, read_records
-
-import pytest
 
 
 # Autor: Carlos Adriano

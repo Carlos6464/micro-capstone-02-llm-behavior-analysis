@@ -1,5 +1,5 @@
-from typing import Protocol
 from dataclasses import dataclass
+from typing import Protocol
 
 from src.core.schemas import LLMMessage
 

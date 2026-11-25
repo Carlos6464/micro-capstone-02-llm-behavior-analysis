@@ -1,9 +1,8 @@
 import json
 from itertools import combinations
-from pathlib import Path
+from typing import Literal
 
 from pydantic import BaseModel, Field
-from typing import Literal
 
 from src.core.schemas import LLMMessage
 from src.infrastructure.storage import append_record, read_records

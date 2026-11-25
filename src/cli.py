@@ -11,10 +11,10 @@ from src.core.config import load_config
 from src.data.dataset_loader import load_expectations, load_inputs
 from src.data.knowledge_loader import load_knowledge
 from src.experiments.experiment_plan import plan
+from src.infrastructure.hashing import sha256
+from src.infrastructure.storage import read_records
 from src.prompting.prompt_builder import build_messages
 from src.prompting.prompt_registry import load_prompts
-from src.infrastructure.storage import read_records
-from src.infrastructure.hashing import sha256
 
 
 # Autor: Carlos Adriano
@@ -69,8 +69,8 @@ def main():
         if not args.execute:
             parser.error("Chamadas reais exigem --execute.")
         load_dotenv(root / ".env")
-        from src.providers.factory import create_provider
         from src.infrastructure.cost_tracker import CostTracker
+        from src.providers.factory import create_provider
         pricing = yaml.safe_load((root / "config/pricing_config.yaml").read_text())
         section = pricing["generation" if args.command == "run" else "judge"]
         limit = float(os.environ["MAX_COST_USD"])
@@ -113,8 +113,8 @@ def main():
         (evaluated/"human_review_queue.json").write_text(
             json.dumps(review_queue(individual), ensure_ascii=False, indent=2), encoding="utf-8")
     else:
-        from src.analytics.metrics import aggregate
         from src.analytics.decision_engine import decide
+        from src.analytics.metrics import aggregate
         rows = aggregate(individual, pairs)
         for row in rows:
             row["decision"] = decide(row)

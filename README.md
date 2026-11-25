@@ -327,7 +327,7 @@ A [base de conhecimento Nexus Cloud v1.0.0](data/knowledge_base/README.md) reún
 | 6. Dataset | ✅ Concluído — dataset aprovado |
 | 7. Engenharia de prompts | ✅ Concluído — v1.0.0 |
 | 8. Critérios de avaliação | ✅ Concluído — v1.0.0 |
-| 9. Implementação Python | 🟡 Em desenvolvimento — pipeline inicial disponível — validação pendente |
+| 9. Implementação Python | 🟡 Em desenvolvimento — validação local de planejamento concluída — testes pendentes |
 | 10. Execução dos experimentos | ⬜ Planejado |
 | 11. Análise dos resultados | ⬜ Planejado |
 | 12. Relatórios | ⬜ Planejado |
@@ -354,3 +354,7 @@ O projeto não constitui, neste estágio, uma solução homologada para utiliza�
 Engenharia de inteligência artificial orientada por evidências.
 
 </div>
+
+### Registro de validação local — 25/11/2026
+
+Validação e dry-run confirmados em Python 3.12: 30 casos, cinco prompts, 450 tarefas e zero chamadas pagas. Corrigidos o caminho de importação do Pytest e os 14 apontamentos de lint reportados. Formatação e nova execução dos testes ainda precisam de confirmação; cobertura não aferida.
