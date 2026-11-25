@@ -366,3 +366,7 @@ No Ubuntu, instale o GNU Make se necessário (`sudo apt install make`). Execute 
 ### Validação ampliada — 25/11/2026
 
 Baseline local informado: 12 testes aprovados, cobertura de 27%, lint e formatação aprovados, zero chamadas pagas. O lockfile publicado pelo responsável foi preservado. Novos testes unitários e de integração usam mocks para geração e avaliação, incluindo retomada, decisão, ranking, CLI e relatórios. Makefile e CI exigem cobertura de 85% e sincronização com lockfile. A nova suíte ainda precisa ser executada; não há confirmação de cobertura ou homologação. Use `make test` e consulte `logs/test_results.txt`.
+
+### Evidência de validação local — 25/11/2026
+
+Commit testado: `7954a5c`. Ambiente limpo, dependências bloqueadas, 28 testes aprovados em 14,45 s, cobertura de instruções de 86,91% (meta 85% atingida), Ruff lint aprovado e dry-run sem chamadas pagas. O único erro foi de formatação em `test_pipeline.py`, corrigido conforme o diff do Ruff. Nova execução necessária para confirmar resultado geral zero. A homologação funcional completa permanece pendente.

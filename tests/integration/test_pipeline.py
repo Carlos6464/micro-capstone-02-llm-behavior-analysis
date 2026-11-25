@@ -29,8 +29,7 @@ def test_pipeline(tmp_path):
     knowledge = load_knowledge(ROOT)
     prompts = load_prompts(ROOT)
     tasks = [
-        ExperimentTask(case_id=cases[0].case_id, prompt_id="P01", repetition=i)
-        for i in range(1, 4)
+        ExperimentTask(case_id=cases[0].case_id, prompt_id="P01", repetition=i) for i in range(1, 4)
     ]
     provider = Mock()
     provider.generate.return_value = ProviderResponse("Resposta simulada", "fake", 10, 5)
@@ -63,8 +62,7 @@ def test_pipeline(tmp_path):
     }
     judge = Mock()
     judge.generate.side_effect = [
-        ProviderResponse(json.dumps(value), "fake", 10, 5)
-        for value in [judgment] * 3 + [pair] * 3
+        ProviderResponse(json.dumps(value), "fake", 10, 5) for value in [judgment] * 3 + [pair] * 3
     ]
     output = tmp_path / "evaluated"
     budget = CostTracker(100, 1, 1)
