@@ -143,10 +143,14 @@ As configurações sensíveis serão gerenciadas por meio de variáveis de ambie
 - [Critérios de sucesso](docs/business/success_criteria.md)
 - [Avaliação de riscos](docs/business/risk_assessment.md)
 
+## Base de conhecimento corporativa
+
+A [base de conhecimento Nexus Cloud v1.0.0](data/knowledge_base/README.md) reúne catálogo, preços, políticas e procedimentos simulados. A [ADR-001](docs/decisions/ADR-001-knowledge-base-strategy.md) registra a decisão de utilizar contexto direto comum às cinco estratégias, sem RAG nesta fase.
+
 ## Status do projeto
 
 **Em desenvolvimento — Prova de conceito**
 
-A estrutura inicial e o cenário corporativo estão definidos. A base de conhecimento e os componentes experimentais serão desenvolvidos nas próximas etapas. Os resultados, indicadores e recomendações serão disponibilizados após a execução e validação dos experimentos.
+A estrutura inicial, o cenário corporativo e a base de conhecimento estão definidos. O dataset e os componentes experimentais serão desenvolvidos nas próximas etapas. Os resultados, indicadores e recomendações serão disponibilizados após a execução e validação dos experimentos.
 
 O projeto não constitui, neste estágio, uma solução homologada para utilização em produção.
