@@ -237,3 +237,6 @@ Thumbs.db
 /results/raw/RUN-*/
 /results/evaluated/RUN-*/
 /results/reports/RUN-*/
+
+# Pacotes locais de resultados
+/pilot_results*.tar.gz

@@ -62,9 +62,7 @@ def aggregate(individual, pairs, planned=90, repetitions=3, responses=()):
             else {}
         )
         consistency = mean(cs) if cs else None
-        generated = [
-            r for r in responses if r["prompt_id"] == prompt and r["status"] == "success"
-        ]
+        generated = [r for r in responses if r["prompt_id"] == prompt and r["status"] == "success"]
         operational = {}
         for key in ("latency_ms", "input_tokens", "output_tokens"):
             values = [r[key] for r in generated if r.get(key) is not None]

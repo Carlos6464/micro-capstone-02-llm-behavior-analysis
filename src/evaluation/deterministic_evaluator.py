@@ -14,8 +14,8 @@ def audit_record(record, response):
         if evidence and evidence not in text:
             flags.append({"kind": "evidence_not_literal", "text": evidence})
     if record["case_id"] == "TC-024":
-        monthly = Decimal("349") + 2 * Decimal("29.90")
-        annual = 12 * (Decimal("349") * Decimal("0.85") + 2 * Decimal("29.90"))
+        monthly = Decimal(349) + 2 * Decimal("29.90")
+        annual = 12 * (Decimal(349) * Decimal("0.85") + 2 * Decimal("29.90"))
         amounts = [
             (m.group(), Decimal(m.group(1).replace(".", "").replace(",", ".")))
             for m in re.finditer(r"R\$\s*([\d.]+,\d{2})", text)
