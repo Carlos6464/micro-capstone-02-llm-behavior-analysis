@@ -289,3 +289,7 @@ O projeto não constitui, neste estágio, uma solução homologada para utiliza�
 Engenharia de inteligência artificial orientada por evidências.
 
 </div>
+
+## Dataset corporativo — versão preliminar
+
+[Consultar os 30 casos e respostas esperadas (CSV)](data/processed/benchmark_dataset.csv) · [Documentação](data/processed/README.md). Origem sintética; curadoria de fontes públicas pendente.
