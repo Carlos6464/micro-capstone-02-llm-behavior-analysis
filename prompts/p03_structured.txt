@@ -1,0 +1,25 @@
+Responda à pergunta do cliente com base nas informações fornecidas.
+
+Organize obrigatoriamente sua resposta utilizando a seguinte estrutura:
+
+1. RESPOSTA DIRETA
+Apresente a informação principal ou o esclarecimento solicitado pelo cliente.
+
+2. ORIENTAÇÕES
+Apresente informações complementares ou procedimentos necessários, utilizando etapas numeradas quando aplicável.
+
+3. PRÓXIMOS PASSOS
+Informe o que o cliente deverá fazer a seguir ou indique o encaminhamento necessário.
+
+Quando uma seção não for aplicável à solicitação, informe brevemente que não há orientações ou ações adicionais.
+
+Apresente somente a resposta destinada ao cliente, respeitando a estrutura estabelecida.
+
+BASE DE CONHECIMENTO:
+{knowledge_base}
+
+CANAL DE ATENDIMENTO:
+{channel}
+
+PERGUNTA DO CLIENTE:
+{customer_query}

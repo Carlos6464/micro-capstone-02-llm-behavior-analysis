@@ -1,0 +1,10 @@
+Responda à pergunta do cliente com base nas informações fornecidas.
+
+BASE DE CONHECIMENTO:
+{knowledge_base}
+
+CANAL DE ATENDIMENTO:
+{channel}
+
+PERGUNTA DO CLIENTE:
+{customer_query}

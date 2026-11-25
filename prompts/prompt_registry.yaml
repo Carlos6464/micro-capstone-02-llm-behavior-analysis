@@ -1,0 +1,65 @@
+registry_version: 1.0.0
+knowledge_base:
+  id: KB-NEXUS-001
+  version: 1.0.0
+dataset: DS-NEXUS-001
+variables: [knowledge_base, channel, customer_query]
+message_layout:
+  system: template antes do marcador PERGUNTA DO CLIENTE
+  user: customer_query
+prompts:
+  - prompt_id: P01
+    name: baseline
+    version: 1.0.0
+    language: pt-BR
+    status: approved
+    template: p01_baseline.txt
+    strategy:
+      role_definition: false
+      structured_output: false
+      few_shot: false
+      explicit_constraints: false
+  - prompt_id: P02
+    name: role
+    version: 1.0.0
+    language: pt-BR
+    status: approved
+    template: p02_role.txt
+    strategy:
+      role_definition: true
+      structured_output: false
+      few_shot: false
+      explicit_constraints: false
+  - prompt_id: P03
+    name: structured
+    version: 1.0.0
+    language: pt-BR
+    status: approved
+    template: p03_structured.txt
+    strategy:
+      role_definition: false
+      structured_output: true
+      few_shot: false
+      explicit_constraints: false
+  - prompt_id: P04
+    name: few_shot
+    version: 1.0.0
+    language: pt-BR
+    status: approved
+    template: p04_few_shot.txt
+    strategy:
+      role_definition: false
+      structured_output: false
+      few_shot: true
+      explicit_constraints: false
+  - prompt_id: P05
+    name: policy_constrained
+    version: 1.0.0
+    language: pt-BR
+    status: approved
+    template: p05_policy_constrained.txt
+    strategy:
+      role_definition: false
+      structured_output: false
+      few_shot: false
+      explicit_constraints: true

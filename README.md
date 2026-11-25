@@ -113,6 +113,16 @@ O benchmark DS-NEXUS-001 contém 30 cenários sintéticos de atendimento, distri
 | P04 | Prompt com exemplos (Few-shot) |
 | P05 | Prompt com restrições e políticas corporativas |
 
+**Status:** cinco templates aprovados e versionados (v1.0.0).
+
+- [P01 — baseline](prompts/p01_baseline.txt)
+- [P02 — role](prompts/p02_role.txt)
+- [P03 — structured](prompts/p03_structured.txt)
+- [P04 — few_shot](prompts/p04_few_shot.txt)
+- [P05 — policy_constrained](prompts/p05_policy_constrained.txt)
+
+[Catálogo de prompts](prompts/README.md) · [Registro YAML](prompts/prompt_registry.yaml) · [Metodologia](docs/methodology/prompt_engineering.md) · [ADR-003](docs/decisions/ADR-003-prompt-strategy.md)
+
 ## Critérios de avaliação
 
 As respostas serão avaliadas considerando as seguintes dimensões:
@@ -278,9 +288,9 @@ A [base de conhecimento Nexus Cloud v1.0.0](data/knowledge_base/README.md) reún
 
 ## 📈 Roadmap
 
-![Progresso](https://img.shields.io/badge/Progresso-46%2C2%25-16877E?style=for-the-badge)
+![Progresso](https://img.shields.io/badge/Progresso-53%2C8%25-16877E?style=for-the-badge)
 
-**6 de 13 etapas concluídas**
+**7 de 13 etapas concluídas**
 
 | Etapa | Status |
 |---|---|
@@ -290,7 +300,7 @@ A [base de conhecimento Nexus Cloud v1.0.0](data/knowledge_base/README.md) reún
 | 4. Cenário corporativo | ✅ Concluído |
 | 5. Base de conhecimento | ✅ Concluído |
 | 6. Dataset | ✅ Concluído — dataset aprovado |
-| 7. Engenharia de prompts | ⬜ Planejado |
+| 7. Engenharia de prompts | ✅ Concluído — v1.0.0 |
 | 8. Critérios de avaliação | ⬜ Planejado |
 | 9. Implementação Python | ⬜ Planejado |
 | 10. Execução dos experimentos | ⬜ Planejado |
@@ -302,7 +312,7 @@ A [base de conhecimento Nexus Cloud v1.0.0](data/knowledge_base/README.md) reún
 
 **Em desenvolvimento — Prova de conceito**
 
-A estrutura inicial, o cenário corporativo e a base de conhecimento estão definidos. O dataset com 30 casos está publicado e aprovado pelo responsável do projeto. Os componentes experimentais serão desenvolvidos nas próximas etapas. Os resultados, indicadores e recomendações serão disponibilizados após a execução e validação dos experimentos.
+A estrutura inicial, o cenário corporativo e a base de conhecimento estão definidos. O dataset com 30 casos está publicado e aprovado pelo responsável do projeto. As cinco estratégias de prompts v1.0.0 estão aprovadas e versionadas. A próxima etapa define os critérios de avaliação; o pipeline experimental ainda será implementado. Os resultados, indicadores e recomendações serão disponibilizados após a execução e validação dos experimentos.
 
 O projeto não constitui, neste estágio, uma solução homologada para utilização em produção.
 
