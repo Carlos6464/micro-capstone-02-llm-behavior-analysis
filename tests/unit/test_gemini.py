@@ -19,7 +19,11 @@ def test_gemini(monkeypatch, judge, prefix):
     provider = create_provider(ExperimentConfig(), judge=judge)
     response = {
         "candidates": [{"finishReason": "STOP", "content": {"parts": [{"text": "OK"}]}}],
-        "usageMetadata": {"promptTokenCount": 10, "candidatesTokenCount": 2, "thoughtsTokenCount": 1},
+        "usageMetadata": {
+            "promptTokenCount": 10,
+            "candidatesTokenCount": 2,
+            "thoughtsTokenCount": 1,
+        },
     }
     sender = MagicMock()
     sender.return_value.__enter__.return_value.read.return_value = json.dumps(response)

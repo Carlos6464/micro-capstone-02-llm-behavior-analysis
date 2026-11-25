@@ -44,8 +44,7 @@ class GeminiProvider:
         if system:
             payload["systemInstruction"] = {"parts": [{"text": s} for s in system]}
         url = (
-            "https://generativelanguage.googleapis.com/v1beta/models/"
-            f"{self.model}:generateContent"
+            f"https://generativelanguage.googleapis.com/v1beta/models/{self.model}:generateContent"
         )
         request = Request(
             url,
