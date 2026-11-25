@@ -8,6 +8,8 @@ A solução propõe uma abordagem experimental, estruturada e reproduzível, cap
 
 ## Contexto empresarial
 
+O cenário de referência é a **Nexus Cloud**, empresa fictícia brasileira de SaaS B2B voltada à gestão empresarial. Os indicadores operacionais são premissas simuladas, não dados reais.
+
 Empresas que oferecem software como serviço (SaaS) enfrentam desafios relacionados à escalabilidade do atendimento, à padronização das informações e à manutenção da qualidade da experiência dos clientes.
 
 A utilização de modelos de linguagem apresenta oportunidades de automação e eficiência operacional. Entretanto, a natureza probabilística desses modelos introduz riscos que precisam ser avaliados antes de sua adoção em ambientes corporativos.
@@ -130,10 +132,21 @@ O projeto deverá utilizar dados simulados ou devidamente anonimizados, evitando
 
 As configurações sensíveis serão gerenciadas por meio de variáveis de ambiente e não serão armazenadas no controle de versão.
 
+## Documentação empresarial
+
+- [Perfil da empresa](docs/business/company_profile.md)
+- [Contexto empresarial](docs/business/business_context.md)
+- [Solicitação da iniciativa](docs/business/business_case.md)
+- [Partes interessadas](docs/business/stakeholders.md)
+- [Requisitos](docs/business/requirements.md)
+- [Escopo](docs/business/scope.md)
+- [Critérios de sucesso](docs/business/success_criteria.md)
+- [Avaliação de riscos](docs/business/risk_assessment.md)
+
 ## Status do projeto
 
 **Em desenvolvimento — Prova de conceito**
 
-A solução encontra-se em fase de estruturação. Os resultados, indicadores e recomendações serão disponibilizados após a execução e validação dos experimentos.
+A estrutura inicial e o cenário corporativo estão definidos. A base de conhecimento e os componentes experimentais serão desenvolvidos nas próximas etapas. Os resultados, indicadores e recomendações serão disponibilizados após a execução e validação dos experimentos.
 
 O projeto não constitui, neste estágio, uma solução homologada para utilização em produção.
