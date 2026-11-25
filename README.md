@@ -358,3 +358,7 @@ Engenharia de inteligência artificial orientada por evidências.
 ### Registro de validação local — 25/11/2026
 
 Validação e dry-run confirmados em Python 3.12: 30 casos, cinco prompts, 450 tarefas e zero chamadas pagas. Corrigidos o caminho de importação do Pytest e os 14 apontamentos de lint reportados. Formatação e nova execução dos testes ainda precisam de confirmação; cobertura não aferida.
+
+### Validação automatizada com Make
+
+No Ubuntu, instale o GNU Make se necessário (`sudo apt install make`). Execute `make test` na raiz do repositório. O alvo sincroniza dependências, valida artefatos, executa dry-run, Ruff (lint e formatação) e Pytest com cobertura. Todas as verificações são executadas mesmo se alguma falhar. A saída padrão e os erros são exibidos no terminal e gravados em `logs/test_results.txt`, sobrescrito a cada execução. O comando retorna falha se qualquer verificação falhar. Não realiza chamadas pagas à API. Envie esse arquivo para análise, após verificar se não contém informações sensíveis. `make format` é opcional e modifica os arquivos locais; `make test` não formata o código.
