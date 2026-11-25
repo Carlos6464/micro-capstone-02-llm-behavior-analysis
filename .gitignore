@@ -221,3 +221,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Configurações locais do projeto
+.env.*
+!.env.example
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
