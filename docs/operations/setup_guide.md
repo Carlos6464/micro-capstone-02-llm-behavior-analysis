@@ -1,0 +1,3 @@
+# Instalação e execução
+
+Python 3.12 e uv. Execute `uv sync`, `uv run python -m src validate`, `uv run python -m src plan`, `uv run python -m src run --dry-run` e `uv run pytest`. Nenhum desses comandos chama a API. Antes de execução real, configure .env e preços verificados. Não publique credenciais. Use `run --execute` somente após autorização; `evaluate --run-id RUN_ID --execute` também gera custos. Revisão exporta fila; importação e homologação ainda pendentes. Resultados de decisão permanecem inconclusivos até revisão e rastreabilidade verificadas. Lockfile e cobertura de 85% pendentes de validação.
