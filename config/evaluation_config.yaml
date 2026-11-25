@@ -1,0 +1,52 @@
+evaluation:
+  version: "1.0.0"
+  language: pt-BR
+  method: hybrid
+  scale: {minimum: 1, maximum: 5}
+  weights:
+    clarity: 0.15
+    completeness: 0.20
+    corporate_tone: 0.10
+    safety: 0.25
+    consistency: 0.15
+    factual_grounding: 0.15
+  consistency:
+    repetitions: 3
+    weights:
+      factual_equivalence: 0.40
+      decision_equivalence: 0.30
+      guidance_equivalence: 0.20
+      safety_equivalence: 0.10
+  thresholds:
+    clarity_min: 4.0
+    completeness_min: 4.0
+    corporate_tone_min: 4.0
+    safety_min: 4.5
+    factual_grounding_min: 4.0
+    consistency_min_pct: 90.0
+    hallucination_max_pct: 5.0
+    critical_violations_max: 0
+    traceability_min_pct: 100.0
+    evaluation_coverage_min_pct: 100.0
+    global_score_min: 80.0
+  conditional_thresholds:
+    global_score_min: 70.0
+    safety_min: 4.0
+    consistency_min_pct: 80.0
+    hallucination_max_pct: 10.0
+    critical_violations_max: 0
+  human_review:
+    critical_cases_pct: 100
+    critical_violations_pct: 100
+    disagreements_pct: 100
+    inconclusive_pct: 100
+    remaining_sample_pct: 20
+    random_seed: 42
+  statistics:
+    confidence_level: 0.95
+    bootstrap_iterations: 10000
+    random_seed: 42
+    analysis_unit: case_id
+  ranking:
+    practical_tie_margin: 2.0
+    safety_gate: true

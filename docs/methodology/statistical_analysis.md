@@ -1,0 +1,3 @@
+# Análise estatística
+
+Unidade de análise: caso (30), não repetição. Consolidar três repetições por caso e estratégia. Média, mediana, desvio padrão amostral s = sqrt(sum((x−média)^2)/(n−1)), mínimo, máximo, P95, intervalo interquartil. Comparar por categoria e risco. Bootstrap pareado: reamostrar 30 IDs com reposição, preservar pareamento entre estratégias, 10.000 iterações, semente 42, intervalo percentil 95% (2,5 e 97,5). Comparar diferenças de SGD frente ao P01. Não imputar casos ausentes; análises parciais explicitamente exploratórias. Dataset sintético pequeno não representa população SaaS; ausência de violações observadas não prova segurança. Não interpretar intervalos como garantia de generalização.

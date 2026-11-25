@@ -136,7 +136,9 @@ As respostas serão avaliadas considerando as seguintes dimensões:
 | Consistência | Estabilidade do comportamento entre diferentes execuções. |
 | Risco de alucinação | Geração de informações incorretas ou não fundamentadas. |
 
-Indicadores complementares de custo e latência poderão ser incorporados conforme a disponibilidade dos recursos utilizados.
+**Framework v1.0.0 aprovado:** clareza 15%, completude 20%, tom 10%, segurança 25%, consistência 15% e fundamentação 15%. SGD 0–100; violações críticas bloqueiam aprovação. Avaliação híbrida, revisão humana e análise pareada. Custo e latência são indicadores complementares.
+
+[Framework](docs/methodology/evaluation_framework.md) · [Rubricas](docs/methodology/evaluation_rubrics.md) · [Métricas](docs/methodology/metrics_definition.md) · [Critérios de decisão](docs/methodology/decision_framework.md) · [Configuração YAML](config/evaluation_config.yaml) · [ADR-004](docs/decisions/ADR-004-evaluation-strategy.md).
 
 ## 🏗️ Arquitetura da solução
 
@@ -288,9 +290,9 @@ A [base de conhecimento Nexus Cloud v1.0.0](data/knowledge_base/README.md) reún
 
 ## 📈 Roadmap
 
-![Progresso](https://img.shields.io/badge/Progresso-53%2C8%25-16877E?style=for-the-badge)
+![Progresso](https://img.shields.io/badge/Progresso-61%2C5%25-16877E?style=for-the-badge)
 
-**7 de 13 etapas concluídas**
+**8 de 13 etapas concluídas**
 
 | Etapa | Status |
 |---|---|
@@ -301,7 +303,7 @@ A [base de conhecimento Nexus Cloud v1.0.0](data/knowledge_base/README.md) reún
 | 5. Base de conhecimento | ✅ Concluído |
 | 6. Dataset | ✅ Concluído — dataset aprovado |
 | 7. Engenharia de prompts | ✅ Concluído — v1.0.0 |
-| 8. Critérios de avaliação | ⬜ Planejado |
+| 8. Critérios de avaliação | ✅ Concluído — v1.0.0 |
 | 9. Implementação Python | ⬜ Planejado |
 | 10. Execução dos experimentos | ⬜ Planejado |
 | 11. Análise dos resultados | ⬜ Planejado |
@@ -312,7 +314,7 @@ A [base de conhecimento Nexus Cloud v1.0.0](data/knowledge_base/README.md) reún
 
 **Em desenvolvimento — Prova de conceito**
 
-A estrutura inicial, o cenário corporativo e a base de conhecimento estão definidos. O dataset com 30 casos está publicado e aprovado pelo responsável do projeto. As cinco estratégias de prompts v1.0.0 estão aprovadas e versionadas. A próxima etapa define os critérios de avaliação; o pipeline experimental ainda será implementado. Os resultados, indicadores e recomendações serão disponibilizados após a execução e validação dos experimentos.
+A estrutura inicial, o cenário corporativo e a base de conhecimento estão definidos. O dataset com 30 casos está publicado e aprovado pelo responsável do projeto. As cinco estratégias de prompts v1.0.0 estão aprovadas e versionadas. O framework de avaliação v1.0.0 está aprovado e versionado. A próxima etapa implementará o pipeline Python. Os resultados, indicadores e recomendações serão disponibilizados após a execução e validação dos experimentos.
 
 O projeto não constitui, neste estágio, uma solução homologada para utilização em produção.
 

@@ -1,0 +1,3 @@
+# ADR-004 — Estratégia de avaliação de comportamento de LLM
+
+Status: aprovado. Adotar avaliação híbrida, rubricas 1–5, SGD ponderado 0–100, juiz cego, comparação semântica por pares, regras determinísticas, revisão humana estratificada e obrigatória em casos críticos, bloqueio por S4 e bootstrap pareado por caso. Configuração YAML versionada e evidências estruturadas. Benefícios: rastreabilidade e avaliação multidimensional. Limitações: viés do juiz, custo adicional, necessidade de revisão humana e amostra sintética. Modelo avaliador e schemas executáveis serão definidos na implementação. Congelar critérios antes da execução; mudanças exigem nova versão e justificativa.
