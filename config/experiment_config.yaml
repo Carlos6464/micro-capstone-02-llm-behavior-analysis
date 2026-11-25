@@ -1,0 +1,6 @@
+repetitions: 3
+random_seed: 42
+strategies: [P01, P02, P03, P04, P05]
+temperature: 0.2
+top_p: 1.0
+max_output_tokens: 1024
