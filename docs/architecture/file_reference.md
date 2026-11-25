@@ -123,3 +123,14 @@ Inventário da árvore versionada em 9a3e6e8, incluindo arquivos de código, tes
 | [`docs/architecture/software_architecture.md`](software_architecture.md) | Arquitetura, dependências, contratos e sequência de execução. |
 
 [Arquitetura detalhada](software_architecture.md) · [Fluxo e comandos](application_flow.md) · [README](../../README.md)
+
+## Novos testes e automação
+
+| Arquivo | Responsabilidade |
+|---|---|
+| [Makefile](../../Makefile) | Validação local e log, com limite de cobertura. |
+| [uv.lock](../../uv.lock) | Dependências resolvidas e versionadas. |
+| [test_decisions.py](../../tests/unit/test_decisions.py) | Decisão e ranking. |
+| [test_providers.py](../../tests/unit/test_providers.py) | Adaptador e fábrica com mocks. |
+| [test_pipeline.py](../../tests/integration/test_pipeline.py) | Pipeline simulado, retomada, avaliação e relatório. |
+| [test_cli.py](../../tests/integration/test_cli.py) | Comandos locais e bloqueio de chamadas reais. |
