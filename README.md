@@ -8,7 +8,7 @@
 
 ![Status](https://img.shields.io/badge/Status-Em%20desenvolvimento-D58C28?style=for-the-badge) ![Fase](https://img.shields.io/badge/Fase-PoC-16877E?style=for-the-badge) ![Base de conhecimento](https://img.shields.io/badge/Base%20de%20conhecimento-v1.0.0-25804D?style=for-the-badge)
 
-[Visão geral](#-visão-geral) · [Arquitetura](#-arquitetura-da-solução) · [Stack](#-stack-tecnológica-prevista) · [Experimentos](#-estratégias-de-engenharia-de-prompts) · [Roadmap](#-roadmap) · [Documentação](#-documentação-empresarial)
+[Visão geral](#-visão-geral) · [Arquitetura](#-arquitetura-da-solução) · [Stack](#-stack-tecnológica-prevista) · [Dataset](#-dataset-corporativo) · [Experimentos](#-estratégias-de-engenharia-de-prompts) · [Roadmap](#-roadmap) · [Documentação](#-documentação-empresarial)
 
 </div>
 
@@ -76,6 +76,32 @@ O projeto contempla:
 - Geração de relatórios técnicos e executivos.
 
 A implantação de um assistente virtual em produção e a integração com sistemas reais de atendimento não fazem parte do escopo inicial.
+
+## 📊 Dataset corporativo
+
+![Cenários](https://img.shields.io/badge/Cenários-30-16877E?style=for-the-badge) ![Categorias](https://img.shields.io/badge/Categorias-5-3776AB?style=for-the-badge) ![Dataset](https://img.shields.io/badge/Dataset-v0.1.0-D58C28?style=for-the-badge)
+
+O benchmark DS-NEXUS-001 contém 30 cenários sintéticos de atendimento, distribuídos em cinco categorias, com entradas e referências de avaliação separadas.
+
+| Categoria | Casos |
+|---|---:|
+| Suporte técnico | 8 |
+| Dúvidas operacionais | 6 |
+| Financeiro e cobrança | 6 |
+| Planos e assinaturas | 5 |
+| Segurança e acessos | 5 |
+| **Total** | **30** |
+
+| Artefato | Acesso |
+|---|---|
+| Dataset completo | [CSV](data/processed/benchmark_dataset.csv) |
+| Entradas experimentais | [JSONL](data/processed/benchmark_inputs.jsonl) |
+| Referências de avaliação | [JSONL](data/processed/benchmark_expectations.jsonl) |
+| Manifesto | [JSON](data/processed/dataset_manifest.json) |
+| Dataset Card | [Documentação](docs/methodology/dataset_card.md) |
+| Decisão arquitetural | [ADR-002](docs/decisions/ADR-002-dataset-design.md) |
+
+**Status:** versão preliminar publicada; curadoria de fontes públicas e validação completa pendentes. Volume previsto: 450 respostas (30 casos × 5 estratégias × 3 repetições).
 
 ## 🧪 Estratégias de engenharia de prompts
 
@@ -263,7 +289,7 @@ A [base de conhecimento Nexus Cloud v1.0.0](data/knowledge_base/README.md) reún
 | 3. Estrutura inicial | ✅ Concluído |
 | 4. Cenário corporativo | ✅ Concluído |
 | 5. Base de conhecimento | ✅ Concluído |
-| 6. Dataset | ⬜ Planejado |
+| 6. Dataset | 🟡 Em validação — v0.1.0 publicada |
 | 7. Engenharia de prompts | ⬜ Planejado |
 | 8. Critérios de avaliação | ⬜ Planejado |
 | 9. Implementação Python | ⬜ Planejado |
@@ -276,7 +302,7 @@ A [base de conhecimento Nexus Cloud v1.0.0](data/knowledge_base/README.md) reún
 
 **Em desenvolvimento — Prova de conceito**
 
-A estrutura inicial, o cenário corporativo e a base de conhecimento estão definidos. O dataset e os componentes experimentais serão desenvolvidos nas próximas etapas. Os resultados, indicadores e recomendações serão disponibilizados após a execução e validação dos experimentos.
+A estrutura inicial, o cenário corporativo e a base de conhecimento estão definidos. O dataset preliminar com 30 casos está publicado e em validação. Os componentes experimentais serão desenvolvidos nas próximas etapas. Os resultados, indicadores e recomendações serão disponibilizados após a execução e validação dos experimentos.
 
 O projeto não constitui, neste estágio, uma solução homologada para utilização em produção.
 
@@ -289,7 +315,3 @@ O projeto não constitui, neste estágio, uma solução homologada para utiliza�
 Engenharia de inteligência artificial orientada por evidências.
 
 </div>
-
-## Dataset corporativo — versão preliminar
-
-[Consultar os 30 casos e respostas esperadas (CSV)](data/processed/benchmark_dataset.csv) · [Documentação](data/processed/README.md). Origem sintética; curadoria de fontes públicas pendente.
