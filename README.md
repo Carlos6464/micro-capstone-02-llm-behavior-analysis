@@ -142,7 +142,7 @@ As respostas serão avaliadas considerando as seguintes dimensões:
 
 ## 🏗️ Arquitetura da solução
 
-A arquitetura proposta será modular, com separação de responsabilidades entre os componentes de gerenciamento de dados, integração com modelos de linguagem, execução experimental, avaliação e análise de resultados.
+A implementação inicial utiliza uma arquitetura modular, com separação de responsabilidades entre os componentes de gerenciamento de dados, integração com modelos de linguagem, execução experimental, avaliação e análise de resultados.
 
 Essa abordagem busca favorecer a manutenção, a extensibilidade e a reprodução dos experimentos.
 
@@ -157,6 +157,14 @@ flowchart TD
  E --> F[Indicadores comparativos]
  E --> G[Relatórios e recomendação]
 ```
+
+### Documentação técnica da arquitetura
+
+| Documento | Conteúdo |
+|---|---|
+| [Arquitetura de software](docs/architecture/software_architecture.md) | Camadas, dependências, contratos, diagramas de componentes e sequência, segurança e persistência. |
+| [Referência arquivo por arquivo](docs/architecture/file_reference.md) | Inventário de todos os arquivos versionados, funções, responsabilidades e links diretos ao código. |
+| [Fluxo da aplicação](docs/architecture/application_flow.md) | Comandos e percurso operacional. |
 
 ### Fluxo da aplicação Python
 
@@ -230,10 +238,17 @@ micro-capstone-02-llm-behavior-analysis/
 │   └── knowledge_base/
 ├── prompts/
 ├── src/
+│   ├── __main__.py
+│   ├── cli.py
+│   ├── core/
+│   ├── data/
+│   ├── prompting/
 │   ├── providers/
 │   ├── experiments/
+│   ├── infrastructure/
 │   ├── evaluation/
-│   └── analytics/
+│   ├── analytics/
+│   └── reporting/
 ├── tests/
 ├── results/
 │   ├── raw/
@@ -244,7 +259,11 @@ micro-capstone-02-llm-behavior-analysis/
 │   ├── business/
 │   ├── architecture/
 │   ├── methodology/
-│   └── decisions/
+│   ├── decisions/
+│   └── operations/
+├── .github/workflows/ci.yml
+├── pyproject.toml
+├── .python-version
 ├── .env.example
 ├── .gitignore
 └── README.md

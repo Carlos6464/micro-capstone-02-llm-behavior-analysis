@@ -3,6 +3,11 @@
 Autor: Carlos Adriano  
 Data: 25/11/2026
 
+## Documentação complementar
+
+- [Arquitetura detalhada de software](software_architecture.md)
+- [Referência de cada arquivo e função](file_reference.md)
+
 ## Arquitetura e execução
 
 O ponto de entrada `python -m src` chama `src.cli.main`. A CLI valida configurações, dataset, referências, base corporativa e prompts antes de encaminhar o comando.
