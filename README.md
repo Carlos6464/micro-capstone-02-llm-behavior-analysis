@@ -304,7 +304,7 @@ A [base de conhecimento Nexus Cloud v1.0.0](data/knowledge_base/README.md) reún
 | 6. Dataset | ✅ Concluído — dataset aprovado |
 | 7. Engenharia de prompts | ✅ Concluído — v1.0.0 |
 | 8. Critérios de avaliação | ✅ Concluído — v1.0.0 |
-| 9. Implementação Python | 🟡 Em desenvolvimento — fundação e planejamento |
+| 9. Implementação Python | 🟡 Em desenvolvimento — fundação, provedor e persistência |
 | 10. Execução dos experimentos | ⬜ Planejado |
 | 11. Análise dos resultados | ⬜ Planejado |
 | 12. Relatórios | ⬜ Planejado |
@@ -318,7 +318,7 @@ A [base de conhecimento Nexus Cloud v1.0.0](data/knowledge_base/README.md) reún
 
 **Em desenvolvimento — Prova de conceito**
 
-A estrutura inicial, o cenário corporativo e a base de conhecimento estão definidos. O dataset com 30 casos está publicado e aprovado pelo responsável do projeto. As cinco estratégias de prompts v1.0.0 estão aprovadas e versionadas. O framework de avaliação v1.0.0 está aprovado e versionado. A implementação Python foi iniciada: schemas, carregadores, composição de prompts e planejamento estão disponíveis. Testes escritos, ainda não executados; integração com API, avaliação e análise pendentes. Os resultados, indicadores e recomendações serão disponibilizados após a execução e validação dos experimentos.
+A estrutura inicial, o cenário corporativo e a base de conhecimento estão definidos. O dataset com 30 casos está publicado e aprovado pelo responsável do projeto. As cinco estratégias de prompts v1.0.0 estão aprovadas e versionadas. O framework de avaliação v1.0.0 está aprovado e versionado. A implementação Python foi iniciada: schemas, carregadores, composição de prompts e planejamento estão disponíveis. Adaptador OpenAI, persistência JSONL e controle preventivo de custos implementados inicialmente. O runner ainda não está exposto pela CLI; retomada segura, retries, avaliação e análise precisam de conclusão e testes. Nenhuma chamada real realizada. Os resultados, indicadores e recomendações serão disponibilizados após a execução e validação dos experimentos.
 
 O projeto não constitui, neste estágio, uma solução homologada para utilização em produção.
 
