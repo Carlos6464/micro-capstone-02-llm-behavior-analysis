@@ -17,6 +17,9 @@ from src.infrastructure.storage import read_records
 from src.infrastructure.hashing import sha256
 
 
+# Autor: Carlos Adriano
+# Data: 25/11/2026
+# Descrição: Orquestra os comandos da aplicação.
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("command", choices=["validate", "plan", "estimate", "run", "evaluate",

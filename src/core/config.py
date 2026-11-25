@@ -13,6 +13,9 @@ class ExperimentConfig(BaseModel):
     max_output_tokens: int = Field(default=1024, gt=0)
 
 
+# Autor: Carlos Adriano
+# Data: 25/11/2026
+# Descrição: Carrega e valida a configuração YAML.
 def load_config(root: Path) -> ExperimentConfig:
     return ExperimentConfig.model_validate(
         yaml.safe_load((root / "config/experiment_config.yaml").read_text(encoding="utf-8"))

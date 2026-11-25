@@ -3,6 +3,9 @@ from src.providers.base import ProviderResponse
 
 
 class OpenAIProvider:
+    # Autor: Carlos Adriano
+    # Data: 25/11/2026
+    # Descrição: Inicializa as dependências do componente.
     def __init__(self, client, model: str, temperature: float, top_p: float,
                  max_output_tokens: int):
         self.client = client
@@ -11,6 +14,9 @@ class OpenAIProvider:
         self.top_p = top_p
         self.max_output_tokens = max_output_tokens
 
+    # Autor: Carlos Adriano
+    # Data: 25/11/2026
+    # Descrição: Envia mensagens ao modelo e normaliza o retorno.
     def generate(self, messages: list[LLMMessage]) -> ProviderResponse:
         response = self.client.chat.completions.create(
             model=self.model,

@@ -158,6 +158,10 @@ flowchart TD
  E --> G[Relatórios e recomendação]
 ```
 
+### Fluxo da aplicação Python
+
+A CLI valida os artefatos, compõe prompts, planeja tarefas e encaminha execução, avaliação e análise aos módulos especializados. Consulte a [documentação do fluxo da aplicação](docs/architecture/application_flow.md) para entender os componentes, comandos e armazenamento.
+
 ## 🛠️ Stack tecnológica prevista
 
 <div align="center">

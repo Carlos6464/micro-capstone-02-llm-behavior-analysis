@@ -37,6 +37,9 @@ class PairJudgment(BaseModel):
     human_review_required: bool
 
 
+# Autor: Carlos Adriano
+# Data: 25/11/2026
+# Descrição: Coordena a avaliação individual e de consistência.
 def evaluate(root, raw, output, cases, expectations, knowledge, provider, budget, max_tokens):
     rubrics = "\n".join((root / "docs/methodology" / name).read_text(encoding="utf-8")
                         for name in ("evaluation_rubrics.md", "hallucination_taxonomy.md",
@@ -44,6 +47,9 @@ def evaluate(root, raw, output, cases, expectations, knowledge, provider, budget
     case_map = {c.case_id: c for c in cases}
     expected = {e.case_id: e for e in expectations}
     rows = [r for r in read_records(raw / "responses.jsonl") if r["status"] == "success"]
+    # Autor: Carlos Adriano
+    # Data: 25/11/2026
+    # Descrição: Solicita e valida a avaliação estruturada.
     def judge(template, schema, values):
         system = (root / "prompts" / template).read_text(encoding="utf-8")
         # Keep untrusted content in a separate user message.

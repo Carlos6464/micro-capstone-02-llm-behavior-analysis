@@ -7,6 +7,9 @@ DOCUMENTS = (
 )
 
 
+# Autor: Carlos Adriano
+# Data: 25/11/2026
+# Descrição: Consolida os documentos corporativos.
 def load_knowledge(root: Path) -> str:
     directory = root / "data/knowledge_base"
     return "\n\n".join(

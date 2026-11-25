@@ -11,6 +11,9 @@ from src.providers.base import LLMProvider
 
 
 class ExperimentRunner:
+    # Autor: Carlos Adriano
+    # Data: 25/11/2026
+    # Descrição: Inicializa as dependências do componente.
     def __init__(self, provider: LLMProvider, storage: Path, budget: CostTracker,
                  max_output_tokens: int):
         self.provider = provider
@@ -18,6 +21,9 @@ class ExperimentRunner:
         self.budget = budget
         self.max_output_tokens = max_output_tokens
 
+    # Autor: Carlos Adriano
+    # Data: 25/11/2026
+    # Descrição: Executa tarefas pendentes e registra respostas e custos.
     def run(self, tasks: list[ExperimentTask], cases: list[BenchmarkInput],
             prompts: dict[str, str], knowledge: str) -> None:
         by_id = {case.case_id: case for case in cases}

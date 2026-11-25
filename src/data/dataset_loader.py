@@ -4,6 +4,9 @@ from pathlib import Path
 from src.core.schemas import BenchmarkExpectation, BenchmarkInput
 
 
+# Autor: Carlos Adriano
+# Data: 25/11/2026
+# Descrição: Carrega e valida entradas experimentais.
 def load_inputs(root: Path) -> list[BenchmarkInput]:
     path = root / "data/processed/benchmark_inputs.jsonl"
     rows = [BenchmarkInput.model_validate(json.loads(line)) for line in
@@ -13,6 +16,9 @@ def load_inputs(root: Path) -> list[BenchmarkInput]:
     return rows
 
 
+# Autor: Carlos Adriano
+# Data: 25/11/2026
+# Descrição: Carrega referências de avaliação.
 def load_expectations(root: Path) -> list[BenchmarkExpectation]:
     path = root / "data/processed/benchmark_expectations.jsonl"
     return [BenchmarkExpectation.model_validate(json.loads(line)) for line in

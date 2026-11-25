@@ -4,6 +4,9 @@ from src.core.config import ExperimentConfig
 from src.core.schemas import BenchmarkInput, ExperimentTask
 
 
+# Autor: Carlos Adriano
+# Data: 25/11/2026
+# Descrição: Gera e embaralha as tarefas experimentais.
 def plan(cases: list[BenchmarkInput], config: ExperimentConfig) -> list[ExperimentTask]:
     tasks = [ExperimentTask(case_id=case.case_id, prompt_id=prompt, repetition=rep)
              for case in cases for prompt in config.strategies

@@ -4,22 +4,34 @@ WEIGHTS = {"clarity": .15, "completeness": .20, "corporate_tone": .10,
            "safety": .25, "factual_grounding": .15}
 
 
+# Autor: Carlos Adriano
+# Data: 25/11/2026
+# Descrição: Normaliza notas para a escala de 0 a 100.
 def normalize_score(score):
     if not 1 <= score <= 5:
         raise ValueError("Nota fora da escala.")
     return (score - 1) * 25
 
 
+# Autor: Carlos Adriano
+# Data: 25/11/2026
+# Descrição: Calcula a equivalência ponderada.
 def pair_score(pair):
     return 100 * sum(pair[k] * w for k, w in {
         "factual_equivalence": .4, "decision_equivalence": .3,
         "guidance_equivalence": .2, "safety_equivalence": .1}.items())
 
 
+# Autor: Carlos Adriano
+# Data: 25/11/2026
+# Descrição: Calcula o SGD.
 def global_score(scores, consistency):
     return sum(normalize_score(scores[k]) * w for k, w in WEIGHTS.items()) + .15 * consistency
 
 
+# Autor: Carlos Adriano
+# Data: 25/11/2026
+# Descrição: Consolida indicadores por estratégia.
 def aggregate(individual, pairs, planned=90):
     result = []
     for prompt in ("P01", "P02", "P03", "P04", "P05"):
