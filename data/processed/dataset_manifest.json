@@ -1,10 +1,11 @@
 {
   "dataset_id": "DS-NEXUS-001",
   "version": "0.1.0",
-  "status": "draft",
+  "status": "approved",
   "count": 30,
   "synthetic_count": 30,
   "verified_public_questions": 0,
   "knowledge_base": "KB-NEXUS-001 v1.0.0",
-  "language": "pt-BR"
+  "language": "pt-BR",
+  "approval_scope": "Aprovação do conteúdo pelo responsável do projeto; origem sintética, sem comprovação de perguntas reais."
 }

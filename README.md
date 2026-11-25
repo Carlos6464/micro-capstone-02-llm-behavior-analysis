@@ -101,7 +101,7 @@ O benchmark DS-NEXUS-001 contém 30 cenários sintéticos de atendimento, distri
 | Dataset Card | [Documentação](docs/methodology/dataset_card.md) |
 | Decisão arquitetural | [ADR-002](docs/decisions/ADR-002-dataset-design.md) |
 
-**Status:** versão preliminar publicada; curadoria de fontes públicas e validação completa pendentes. Volume previsto: 450 respostas (30 casos × 5 estratégias × 3 repetições).
+**Status:** dataset sintético aprovado pelo responsável do projeto; fontes públicas individuais não verificadas. Volume previsto: 450 respostas (30 casos × 5 estratégias × 3 repetições).
 
 ## 🧪 Estratégias de engenharia de prompts
 
@@ -278,9 +278,9 @@ A [base de conhecimento Nexus Cloud v1.0.0](data/knowledge_base/README.md) reún
 
 ## 📈 Roadmap
 
-![Progresso](https://img.shields.io/badge/Progresso-38%2C5%25-16877E?style=for-the-badge)
+![Progresso](https://img.shields.io/badge/Progresso-46%2C2%25-16877E?style=for-the-badge)
 
-**5 de 13 etapas concluídas**
+**6 de 13 etapas concluídas**
 
 | Etapa | Status |
 |---|---|
@@ -289,7 +289,7 @@ A [base de conhecimento Nexus Cloud v1.0.0](data/knowledge_base/README.md) reún
 | 3. Estrutura inicial | ✅ Concluído |
 | 4. Cenário corporativo | ✅ Concluído |
 | 5. Base de conhecimento | ✅ Concluído |
-| 6. Dataset | 🟡 Em validação — v0.1.0 publicada |
+| 6. Dataset | ✅ Concluído — dataset aprovado |
 | 7. Engenharia de prompts | ⬜ Planejado |
 | 8. Critérios de avaliação | ⬜ Planejado |
 | 9. Implementação Python | ⬜ Planejado |
@@ -302,7 +302,7 @@ A [base de conhecimento Nexus Cloud v1.0.0](data/knowledge_base/README.md) reún
 
 **Em desenvolvimento — Prova de conceito**
 
-A estrutura inicial, o cenário corporativo e a base de conhecimento estão definidos. O dataset preliminar com 30 casos está publicado e em validação. Os componentes experimentais serão desenvolvidos nas próximas etapas. Os resultados, indicadores e recomendações serão disponibilizados após a execução e validação dos experimentos.
+A estrutura inicial, o cenário corporativo e a base de conhecimento estão definidos. O dataset com 30 casos está publicado e aprovado pelo responsável do projeto. Os componentes experimentais serão desenvolvidos nas próximas etapas. Os resultados, indicadores e recomendações serão disponibilizados após a execução e validação dos experimentos.
 
 O projeto não constitui, neste estágio, uma solução homologada para utilização em produção.
 
