@@ -394,3 +394,7 @@ Gemini tenta novamente HTTP 503 até três chamadas, com esperas de 15 e 30 segu
 ### Recuperação de JSON inválido do juiz
 
 O avaliador valida cada resposta com Pydantic e tenta novamente até três vezes quando o JSON ou schema é inválido. Custos das respostas rejeitadas são registrados em `invalid_judgments.jsonl` e incluídos no orçamento na retomada. Avaliações válidas existentes são preservadas. Retome com `make evaluate RUN_ID=RUN-FULL01`. A falha anterior à correção não teve custo persistido; confira o saldo real. Validação local pendente.
+
+### RUN-FULL01 — análise preliminar
+
+Coleta concluída: 450 respostas, 450 avaliações individuais e 450 pares, com correspondência integral dos IDs ao manifesto. Custo registrado US$ 2,8013489. Consulte a [análise experimental e estatística](docs/results/full_experiment_analysis.md). Decisão ainda INCONCLUSIVO: revisão humana e rastreabilidade integral pendentes. Não foram realizadas novas chamadas pagas.
