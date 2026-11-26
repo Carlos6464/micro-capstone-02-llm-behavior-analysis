@@ -10,6 +10,9 @@
 
 [Visão geral](#-visão-geral) · [Arquitetura](#-arquitetura-da-solução) · [Stack](#-stack-tecnológica-prevista) · [Dataset](#-dataset-corporativo) · [Experimentos](#-estratégias-de-engenharia-de-prompts) · [Roadmap](#-roadmap) · [Documentação](#-documentação-empresarial)
 
+
+[![Dashboard online](https://img.shields.io/badge/Dashboard-Acessar%20site-16877E?style=for-the-badge)](https://carlos6464.github.io/micro-capstone-02-llm-behavior-analysis/) [![Relatório final](https://img.shields.io/badge/Relat%C3%B3rio%20final-PDF-3776AB?style=for-the-badge)](docs/results/nexus_cloud_final_report.pdf)
+
 </div>
 
 ---
