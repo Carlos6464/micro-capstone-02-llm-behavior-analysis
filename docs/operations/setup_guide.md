@@ -23,3 +23,7 @@ Relatórios usam o manifesto para cobertura e repetições. Sem pares, SGD perma
 ### Retomada após HTTP 503
 
 Gemini tenta novamente HTTP 503 até três chamadas, com esperas de 15 e 30 segundos. Se persistir, registra estado retryable_503 e permite retomar o mesmo manifesto, preservando sucessos. Para falha anterior a esta versão, somente quando o terminal comprovou HTTP 503: `uv run python -m src run --resume RUN-FULL01 --execute --confirm-legacy-503`. A confirmação é manual pois o registro antigo não guardava o código HTTP. Outros erros de cobrança incerta continuam bloqueados. Repetições de requisição podem ter cobrança não registrada; confira o saldo. Validação local pendente.
+
+### Recuperação de JSON inválido do juiz
+
+O avaliador valida cada resposta com Pydantic e tenta novamente até três vezes quando o JSON ou schema é inválido. Custos das respostas rejeitadas são registrados em `invalid_judgments.jsonl` e incluídos no orçamento na retomada. Avaliações válidas existentes são preservadas. Retome com `make evaluate RUN_ID=RUN-FULL01`. A falha anterior à correção não teve custo persistido; confira o saldo real. Validação local pendente.

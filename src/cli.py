@@ -160,6 +160,7 @@ def main():
                     raw / "responses.jsonl",
                     evaluated / "individual_evaluations.jsonl",
                     evaluated / "consistency_evaluations.jsonl",
+                    evaluated / "invalid_judgments.jsonl",
                 )
                 for r in read_records(p)
             )

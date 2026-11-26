@@ -2,7 +2,7 @@ import json
 from itertools import combinations
 from typing import Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ValidationError
 
 from src.core.schemas import LLMMessage
 from src.infrastructure.storage import append_record, read_records
@@ -61,12 +61,29 @@ def evaluate(root, raw, output, cases, expectations, knowledge, provider, budget
         system = system.split("RUBRICAS:")[0] + "\n" + rubrics + "\n" + knowledge
         system += "\nSchema JSON: " + json.dumps(schema.model_json_schema(), ensure_ascii=False)
         user = json.dumps(values, ensure_ascii=False)
-        budget.check(len((system + user).encode("utf-8")) + 128, max_tokens)
-        result = provider.generate(
-            [LLMMessage(role="system", content=system), LLMMessage(role="user", content=user)]
-        )
-        cost = budget.record(result.input_tokens, result.output_tokens)
-        return schema.model_validate_json(result.text), cost
+        for attempt in range(3):
+            budget.check(len((system + user).encode("utf-8")) + 128, max_tokens)
+            result = provider.generate(
+                [LLMMessage(role="system", content=system), LLMMessage(role="user", content=user)]
+            )
+            cost = budget.record(result.input_tokens, result.output_tokens)
+            try:
+                return schema.model_validate_json(result.text), cost
+            except ValidationError:
+                append_record(
+                    output / "invalid_judgments.jsonl",
+                    {
+                        "schema": schema.__name__,
+                        "attempt": attempt + 1,
+                        "estimated_cost_usd": cost,
+                        "request_id": result.request_id,
+                        "input_tokens": result.input_tokens,
+                        "output_tokens": result.output_tokens,
+                    },
+                )
+                if attempt == 2:
+                    raise RuntimeError("Juiz retornou JSON inválido em três tentativas.") from None
+        raise RuntimeError("Avaliação não concluída.")
 
     individual = output / "individual_evaluations.jsonl"
     pairs = output / "consistency_evaluations.jsonl"
