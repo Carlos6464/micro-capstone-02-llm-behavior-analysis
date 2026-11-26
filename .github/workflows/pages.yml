@@ -26,8 +26,9 @@ jobs:
           cp docs/dashboard/index.html docs/dashboard/styles.css docs/dashboard/dashboard.js _site/dashboard/
           cp docs/results/strategy_comparison.csv _site/results/
           for file in executive_report full_experiment_analysis review_status; do
-            cp "docs/results/$file.md" _site/results/
+            cp "docs/results/$file.html" _site/results/
           done
+          cp docs/results/documentation.css _site/results/
           printf '%s\n' '<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=dashboard/"><title>Nexus Intelligence</title><a href="dashboard/">Abrir dashboard</a></html>' > _site/index.html
           touch _site/.nojekyll
           node --check _site/dashboard/dashboard.js

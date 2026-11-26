@@ -418,3 +418,7 @@ Interface responsiva com navegação lateral, tema claro/escuro, KPIs, gráficos
 ### Publicação contínua do dashboard
 
 Validação visual e funcional no navegador informada pelo responsável em 25/11/2026. O workflow [pages.yml](.github/workflows/pages.yml) publica somente o dashboard e relatórios consolidados selecionados, sem arquivos brutos ou credenciais. Alterações em docs/dashboard, docs/results ou no workflow na main disparam deploy; também é possível executar manualmente. Ative Settings → Pages → Build and deployment → Source → GitHub Actions uma única vez. URL prevista: https://carlos6464.github.io/micro-capstone-02-llm-behavior-analysis/ . A ativação e o primeiro deploy ainda precisam ser confirmados. Os indicadores continuam sendo um snapshot; não há novas chamadas Gemini.
+
+### Documentação web
+
+O dashboard publicado oferece páginas HTML responsivas para [relatório executivo](docs/results/executive_report.html), [análise técnica](docs/results/full_experiment_analysis.html) e [registro de revisão](docs/results/review_status.html), com navegação, retorno e impressão. Os Markdown originais permanecem como fontes; alterações de conteúdo devem ser sincronizadas com as páginas HTML. Deploy automático pela main.
