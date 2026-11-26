@@ -313,9 +313,9 @@ A [base de conhecimento Nexus Cloud v1.0.0](data/knowledge_base/README.md) reún
 
 ## 📈 Roadmap
 
-![Progresso](https://img.shields.io/badge/Progresso-61%2C5%25-16877E?style=for-the-badge)
+![Progresso](https://img.shields.io/badge/Progresso-84%2C6%25-16877E?style=for-the-badge)
 
-**8 de 13 etapas concluídas**
+**11 de 13 etapas concluídas — análise e relatório com ressalvas**
 
 | Etapa | Status |
 |---|---|
@@ -327,11 +327,11 @@ A [base de conhecimento Nexus Cloud v1.0.0](data/knowledge_base/README.md) reún
 | 6. Dataset | ✅ Concluído — dataset aprovado |
 | 7. Engenharia de prompts | ✅ Concluído — v1.0.0 |
 | 8. Critérios de avaliação | ✅ Concluído — v1.0.0 |
-| 9. Implementação Python | 🟡 Em desenvolvimento — validação local de planejamento concluída — testes pendentes |
-| 10. Execução dos experimentos | ⬜ Planejado |
-| 11. Análise dos resultados | ⬜ Planejado |
-| 12. Relatórios | ⬜ Planejado |
-| 13. Revisão final e publicação | ⬜ Planejado |
+| 9. Implementação Python | 🟡 Pipeline executado; reteste e rastreabilidade integral pendentes |
+| 10. Execução dos experimentos | ✅ Concluído — RUN-FULL01 |
+| 11. Análise dos resultados | ✅ Concluído — análise exploratória, ressalvas registradas |
+| 12. Relatórios | ✅ Concluído — relatório executivo e tabela comparativa |
+| 13. Revisão final e publicação | 🟡 Homologação formal pendente |
 
 ## Execução local (pipeline inicial)
 
@@ -398,3 +398,7 @@ O avaliador valida cada resposta com Pydantic e tenta novamente até três vezes
 ### RUN-FULL01 — análise preliminar
 
 Coleta concluída: 450 respostas, 450 avaliações individuais e 450 pares, com correspondência integral dos IDs ao manifesto. Custo registrado US$ 2,8013489. Consulte a [análise experimental e estatística](docs/results/full_experiment_analysis.md). Decisão ainda INCONCLUSIVO: revisão humana e rastreabilidade integral pendentes. Não foram realizadas novas chamadas pagas.
+
+## Encerramento da análise exploratória
+
+[Relatório executivo](docs/results/executive_report.md) · [Tabela comparativa CSV](docs/results/strategy_comparison.csv) · [Registro de revisão](docs/results/review_status.md). P01 e P05 candidatos exploratórios; decisão formal INCONCLUSIVO. O responsável declarou revisão sem fornecer registros individuais. Nenhuma alteração de notas ou aprovação presumida. Os registros históricos acima descrevem versões anteriores; prevalece o status atual desta seção. Sem novas chamadas pagas.
