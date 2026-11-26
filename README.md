@@ -406,3 +406,7 @@ Coleta concluída: 450 respostas, 450 avaliações individuais e 450 pares, com 
 ## Dashboard executivo
 
 Visualize o relatório em uma interface web responsiva, sem dependências adicionais ou API. Na raiz do projeto, execute `python3 -m http.server 8000 --bind 127.0.0.1` e abra http://127.0.0.1:8000/docs/dashboard/. O dashboard contém um snapshot do RUN-FULL01, seleção de métricas, tabela, auditoria financeira e impressão. [Encerramento e ressalvas](docs/results/closure.md). A entrega exploratória está publicada; homologação formal e reteste permanecem pendentes. GitHub Pages não foi configurado.
+
+### Dashboard corporativo v2
+
+Interface responsiva com navegação lateral, tema claro/escuro, KPIs, gráficos SVG de dispersão e intervalos de confiança, seletor de indicadores, matriz comparativa, auditoria financeira e governança. Arquivos separados HTML/CSS/JS em `docs/dashboard/`. Mantém snapshot offline, sem dependências externas. Validação visual em navegador ainda pendente.
