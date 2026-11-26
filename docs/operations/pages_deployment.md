@@ -1,0 +1,3 @@
+# Publicação contínua do dashboard
+
+Validação no navegador declarada pelo responsável em 25/11/2026. Em Settings → Pages, selecione GitHub Actions como Source. Em Actions, execute Deploy dashboard to GitHub Pages na main. Após sucesso, use a URL do ambiente github-pages. Novos pushes na main que alterem dashboard, resultados ou workflow disparam deploy automático. O artefato usa lista explícita de arquivos públicos, sem .env, logs ou resultados brutos. O JavaScript é verificado com node --check. Não há chamadas ao Gemini. A atualização visual não recalcula indicadores; atualize o snapshot quando necessário. Primeiro deploy ainda não confirmado.

@@ -414,3 +414,7 @@ Interface responsiva com navegação lateral, tema claro/escuro, KPIs, gráficos
 ### Validação final do Python
 
 [Registro de validação](docs/results/final_validation.md): commit `01e04ab`, 32 testes aprovados, cobertura 87,28%, Ruff aprovado, resultado geral zero. Validação visual do dashboard e homologação formal permanecem pendentes.
+
+### Publicação contínua do dashboard
+
+Validação visual e funcional no navegador informada pelo responsável em 25/11/2026. O workflow [pages.yml](.github/workflows/pages.yml) publica somente o dashboard e relatórios consolidados selecionados, sem arquivos brutos ou credenciais. Alterações em docs/dashboard, docs/results ou no workflow na main disparam deploy; também é possível executar manualmente. Ative Settings → Pages → Build and deployment → Source → GitHub Actions uma única vez. URL prevista: https://carlos6464.github.io/micro-capstone-02-llm-behavior-analysis/ . A ativação e o primeiro deploy ainda precisam ser confirmados. Os indicadores continuam sendo um snapshot; não há novas chamadas Gemini.

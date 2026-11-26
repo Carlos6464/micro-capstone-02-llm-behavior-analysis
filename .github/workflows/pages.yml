@@ -1,0 +1,47 @@
+name: Deploy dashboard to GitHub Pages
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/dashboard/**'
+      - 'docs/results/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - name: Prepare public dashboard
+        run: |
+          mkdir -p _site/dashboard _site/results
+          cp docs/dashboard/index.html docs/dashboard/styles.css docs/dashboard/dashboard.js _site/dashboard/
+          cp docs/results/strategy_comparison.csv _site/results/
+          for file in executive_report full_experiment_analysis review_status; do
+            cp "docs/results/$file.md" _site/results/
+          done
+          printf '%s\n' '<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=dashboard/"><title>Nexus Intelligence</title><a href="dashboard/">Abrir dashboard</a></html>' > _site/index.html
+          touch _site/.nojekyll
+          node --check _site/dashboard/dashboard.js
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
