@@ -402,3 +402,7 @@ Coleta concluída: 450 respostas, 450 avaliações individuais e 450 pares, com 
 ## Encerramento da análise exploratória
 
 [Relatório executivo](docs/results/executive_report.md) · [Tabela comparativa CSV](docs/results/strategy_comparison.csv) · [Registro de revisão](docs/results/review_status.md). P01 e P05 candidatos exploratórios; decisão formal INCONCLUSIVO. O responsável declarou revisão sem fornecer registros individuais. Nenhuma alteração de notas ou aprovação presumida. Os registros históricos acima descrevem versões anteriores; prevalece o status atual desta seção. Sem novas chamadas pagas.
+
+## Dashboard executivo
+
+Visualize o relatório em uma interface web responsiva, sem dependências adicionais ou API. Na raiz do projeto, execute `python3 -m http.server 8000 --bind 127.0.0.1` e abra http://127.0.0.1:8000/docs/dashboard/. O dashboard contém um snapshot do RUN-FULL01, seleção de métricas, tabela, auditoria financeira e impressão. [Encerramento e ressalvas](docs/results/closure.md). A entrega exploratória está publicada; homologação formal e reteste permanecem pendentes. GitHub Pages não foi configurado.
