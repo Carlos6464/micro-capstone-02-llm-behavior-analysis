@@ -422,3 +422,7 @@ Validação visual e funcional no navegador informada pelo responsável em 25/11
 ### Documentação web
 
 O dashboard publicado oferece páginas HTML responsivas para [relatório executivo](docs/results/executive_report.html), [análise técnica](docs/results/full_experiment_analysis.html) e [registro de revisão](docs/results/review_status.html), com navegação, retorno e impressão. Os Markdown originais permanecem como fontes; alterações de conteúdo devem ser sincronizadas com as páginas HTML. Deploy automático pela main.
+
+### Relatório técnico final
+
+[PDF no repositório](docs/results/nexus_cloud_final_report.pdf) · [PDF no GitHub Pages](https://carlos6464.github.io/micro-capstone-02-llm-behavior-analysis/results/nexus_cloud_final_report.pdf). Disponível no menu de documentação do dashboard após deploy.
