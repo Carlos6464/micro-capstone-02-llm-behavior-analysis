@@ -1,6 +1,7 @@
 from datetime import UTC, datetime
 from pathlib import Path
 from time import perf_counter
+from urllib.error import HTTPError
 
 from src.core.schemas import BenchmarkInput, ExperimentTask
 from src.infrastructure.cost_tracker import CostTracker
@@ -38,7 +39,7 @@ class ExperimentRunner:
         completed = {row["execution_id"] for row in existing if row["status"] == "success"}
         attempts = read_records(self.storage / "attempts.jsonl")
         latest = {row["execution_id"]: row for row in attempts}
-        if any(row.get("status") != "success" for row in latest.values()):
+        if any(row.get("status") not in ("success", "retryable_503") for row in latest.values()):
             raise RuntimeError("Tentativas com cobrança incerta exigem reconciliação manual.")
         self.budget.spent = sum(
             row["estimated_cost_usd"] for row in existing if row["status"] == "success"
@@ -63,6 +64,10 @@ class ExperimentRunner:
                 cost = self.budget.record(response.input_tokens, response.output_tokens)
             except Exception as error:
                 append_record(path, dict(base, status="failed", error_type=type(error).__name__))
+                if isinstance(error, HTTPError) and error.code == 503:
+                    append_record(
+                        self.storage / "attempts.jsonl", dict(base, status="retryable_503")
+                    )
                 raise
             append_record(
                 path,

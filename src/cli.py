@@ -12,7 +12,7 @@ from src.data.dataset_loader import load_expectations, load_inputs
 from src.data.knowledge_loader import load_knowledge
 from src.experiments.experiment_plan import plan
 from src.infrastructure.hashing import sha256
-from src.infrastructure.storage import read_records
+from src.infrastructure.storage import append_record, read_records
 from src.prompting.prompt_builder import build_messages
 from src.prompting.prompt_registry import load_prompts
 
@@ -39,6 +39,7 @@ def main():
     parser.add_argument("--root", type=Path, default=Path.cwd())
     parser.add_argument("--run-id")
     parser.add_argument("--resume")
+    parser.add_argument("--confirm-legacy-503", action="store_true")
     parser.add_argument("--cases", nargs="+")
     parser.add_argument("--repetitions", type=int)
     parser.add_argument("--execute", action="store_true")
@@ -130,6 +131,21 @@ def main():
             if path.exists() and json.loads(path.read_text()) != manifest:
                 raise ValueError("Manifesto divergente; use configuração original.")
             path.write_text(json.dumps(manifest, ensure_ascii=False), encoding="utf-8")
+            if args.confirm_legacy_503:
+                journal = raw / "attempts.jsonl"
+                latest = {r["execution_id"]: r for r in read_records(journal)}
+                pending = [r for r in latest.values() if r["status"] == "started"]
+                failures = read_records(raw / "responses.jsonl")
+                if len(pending) != 1 or not failures:
+                    raise ValueError("Não há uma única tentativa legada para reconciliar.")
+                last = failures[-1]
+                if (
+                    last["execution_id"] != pending[0]["execution_id"]
+                    or last["status"] != "failed"
+                    or last.get("error_type") != "HTTPError"
+                ):
+                    raise ValueError("Falha legada incompatível com confirmação de HTTP 503.")
+                append_record(journal, dict(pending[0], status="retryable_503"))
             ExperimentRunner(create_provider(config), raw, budget, config.max_output_tokens).run(
                 tasks, cases, prompts, knowledge
             )

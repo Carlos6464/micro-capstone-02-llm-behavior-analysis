@@ -1,4 +1,6 @@
 import json
+from time import sleep
+from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
 from src.core.schemas import LLMMessage
@@ -52,8 +54,15 @@ class GeminiProvider:
             headers={"Content-Type": "application/json", "x-goog-api-key": self.key},
             method="POST",
         )
-        with urlopen(request, timeout=60) as response:
-            data = json.load(response)
+        for attempt in range(3):
+            try:
+                with urlopen(request, timeout=60) as response:
+                    data = json.load(response)
+                break
+            except HTTPError as error:
+                if error.code != 503 or attempt == 2:
+                    raise
+                sleep(15 * (2**attempt))
         candidates = data.get("candidates", [])
         if not candidates or candidates[0].get("finishReason") != "STOP":
             raise ValueError("Resposta Gemini bloqueada ou incompleta.")
