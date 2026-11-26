@@ -240,3 +240,6 @@ Thumbs.db
 
 # Pacotes locais de resultados
 /pilot_results*.tar.gz
+
+# Arquivo local de resultados brutos
+/full_results.zip

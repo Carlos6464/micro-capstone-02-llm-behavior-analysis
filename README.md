@@ -313,9 +313,9 @@ A [base de conhecimento Nexus Cloud v1.0.0](data/knowledge_base/README.md) reún
 
 ## 📈 Roadmap
 
-![Progresso](https://img.shields.io/badge/Progresso-84%2C6%25-16877E?style=for-the-badge)
+![Progresso](https://img.shields.io/badge/Progresso-92%2C3%25-16877E?style=for-the-badge)
 
-**11 de 13 etapas concluídas — análise e relatório com ressalvas**
+**12 de 13 etapas concluídas — prova de conceito, com ressalvas**
 
 | Etapa | Status |
 |---|---|
@@ -327,7 +327,7 @@ A [base de conhecimento Nexus Cloud v1.0.0](data/knowledge_base/README.md) reún
 | 6. Dataset | ✅ Concluído — dataset aprovado |
 | 7. Engenharia de prompts | ✅ Concluído — v1.0.0 |
 | 8. Critérios de avaliação | ✅ Concluído — v1.0.0 |
-| 9. Implementação Python | 🟡 Pipeline executado; reteste e rastreabilidade integral pendentes |
+| 9. Implementação Python | ✅ Concluído para a prova de conceito — 32 testes, cobertura 87,28%; rastreabilidade integral pendente |
 | 10. Execução dos experimentos | ✅ Concluído — RUN-FULL01 |
 | 11. Análise dos resultados | ✅ Concluído — análise exploratória, ressalvas registradas |
 | 12. Relatórios | ✅ Concluído — relatório executivo e tabela comparativa |
@@ -410,3 +410,7 @@ Visualize o relatório em uma interface web responsiva, sem dependências adicio
 ### Dashboard corporativo v2
 
 Interface responsiva com navegação lateral, tema claro/escuro, KPIs, gráficos SVG de dispersão e intervalos de confiança, seletor de indicadores, matriz comparativa, auditoria financeira e governança. Arquivos separados HTML/CSS/JS em `docs/dashboard/`. Mantém snapshot offline, sem dependências externas. Validação visual em navegador ainda pendente.
+
+### Validação final do Python
+
+[Registro de validação](docs/results/final_validation.md): commit `01e04ab`, 32 testes aprovados, cobertura 87,28%, Ruff aprovado, resultado geral zero. Validação visual do dashboard e homologação formal permanecem pendentes.
